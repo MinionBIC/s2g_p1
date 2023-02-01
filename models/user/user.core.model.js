@@ -11,8 +11,12 @@ const UserCoreDataSchema = new mongoose.Schema(
             required: true
         },
         email: {
-            type: mongoose.Types.email,
+            type: String,
             required: true
         }         
     }
 )
+
+const UserCore = mongoose.model('UserCore', UserCoreDataSchema);
+
+module.exports = UserCore;
