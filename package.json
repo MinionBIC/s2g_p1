@@ -1,0 +1,11 @@
+{
+  "name": "s2g_beta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fm",
+  "license": "ISC"
+}
