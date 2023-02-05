@@ -18,9 +18,9 @@ const UserCoreDataSchema = new mongoose.Schema(
     }
 )
 
-const UserCore = mongoose.model('UserCore', UserCoreDataSchema);
+const UserCoreData = mongoose.model('UserCoreData', UserCoreDataSchema);
 
-module.exports = UserCore;
+module.exports = UserCoreData;
 
 module.exports.newUser = function(newUser, callback) {
 
@@ -34,6 +34,5 @@ module.exports.newUser = function(newUser, callback) {
 } 
 
 module.exports.checkByEmail = async function(value) {
-
-    return await UserCore.exists({ email: value});
+    return await UserCoreData.exists({ email: value});
 };
