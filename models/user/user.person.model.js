@@ -28,7 +28,7 @@ module.exports.newData = function(newData, callback) {
     newData.save(callback);
 }
 
-module.exports.checkData = async function(value) {
+module.exports.checkData = async function(value){
    return await UserPersonData.exists({user_id: value});
 }
 
