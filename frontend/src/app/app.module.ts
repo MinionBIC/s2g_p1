@@ -5,18 +5,37 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StartComponent } from './pages/start/start.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CheckInComponent } from './pages/check-in/check-in.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input'
+
+const matModules = [
+  MatCardModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     StartComponent,
-    HeaderComponent
+    HeaderComponent,
+    CheckInComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    matModules
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,99 @@
+<div class="container">
+
+    <div class="welcome">
+
+        <mat-card>
+            <mat-card-header>
+                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                <mat-card-title>CHECK IN</mat-card-title>
+                <mat-card-subtitle>Check in our Website and see whats new!</mat-card-subtitle>
+                <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                    alt="Image of a Shiba Inu">
+            </mat-card-header>
+
+            <div class="example-action-buttons">
+
+                <mat-card-actions  style="text-align: center;">
+                    <button mat-button (click)="goToLogin()">LOGIN</button>
+                    <button mat-button (click)="goToRegister()">REGISTER</button>
+                </mat-card-actions>
+            </div>
+
+        </mat-card>
+
+        <mat-card *ngIf="mode == 'login'">
+            <mat-card-header>
+                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                <mat-card-title>LOGIN</mat-card-title>
+                <mat-card-subtitle>this is login card</mat-card-subtitle>               
+            </mat-card-header>
+            <mat-card-content style="text-align: center;">
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fill form field</mat-label>
+                        <input matInput placeholder="Placeholder">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fill form field</mat-label>
+                        <input matInput placeholder="Placeholder">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fill form field</mat-label>
+                        <input matInput placeholder="Placeholder">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+                </p>
+            </mat-card-content>
+            <mat-card-actions style="text-align: center;">
+                <button mat-button (click)="submitLogin()">SUBMIT LOGIN</button>
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-card *ngIf="mode == 'register'">
+            <mat-card-header>
+                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                <mat-card-title>REGISTER</mat-card-title>
+                <mat-card-subtitle>this is register card</mat-card-subtitle>               
+            </mat-card-header>
+            <mat-card-content style="text-align: center;">
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fill form field</mat-label>
+                        <input matInput placeholder="Placeholder">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fill form field</mat-label>
+                        <input matInput placeholder="Placeholder">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fill form field</mat-label>
+                        <input matInput placeholder="Placeholder">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+                </p>
+            </mat-card-content>
+            <mat-card-actions style="text-align: center;">
+                <button mat-button (click)="submitRegister()">SUBMIT REGISTER</button>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+</div>

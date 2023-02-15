@@ -1,8 +1,8 @@
 .grid-main {
     display: grid;  
     
-    grid-template-rows: 100px auto 100px;
-    grid-template-columns: 200px auto 200px;
+    grid-template-rows: 50px auto 50px;
+    grid-template-columns: 50px auto 50px;
 
     grid-template-areas: 
     'header header header'
@@ -14,14 +14,13 @@
 
 .app-main {
     grid-area: main;
-    background-color: gray;
-
-    display: flex;
-    height: 100%;
+    background-color: gray;    
 }
 
 .app-header {
-    grid-area: header;    
+    grid-area: header;  
+    
+    background-color: aqua;
 }
 
 .app-nav {
@@ -35,8 +34,9 @@
 .app-footer {
     grid-area: footer;
 
-    position: fixed;
-    bottom: 0;
+    background-color: burlywood;
+    // position: fixed;
+    // bottom: 0;
 }
 
 @media (max-width: 991px) {
