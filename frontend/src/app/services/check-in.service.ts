@@ -20,6 +20,11 @@ export class CheckInService {
   }
 
   loginUser(user){
-    
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+
+    let path = 'http://localhost:3000/users/userCheck';
+
+    return this.http.post<any>(path, user, {headers: headers});
   }
 }

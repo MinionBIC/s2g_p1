@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { timer } from 'rxjs';
 import { CheckInService } from 'src/app/services/check-in.service';
 
 @Component({
@@ -9,14 +11,16 @@ import { CheckInService } from 'src/app/services/check-in.service';
 })
 export class CheckInComponent implements OnInit {
 
-  constructor(private checkInService: CheckInService) { }
+  constructor(private checkInService: CheckInService, private Router: Router) { }
 
-  mode : string = 'register';  
+  mode : string = 'login';  
   success : boolean;
   msg : string;
 
   ngOnInit(): void {
   }
+
+
 
   goToLogin(){
     this.mode = 'login';
@@ -26,14 +30,31 @@ export class CheckInComponent implements OnInit {
     this.mode = 'register';
   }
 
-  submitLogin() {
-    console.log('login');
+  submitLogin(form: NgForm) {
+    
+
+    let user = {      
+      "password": form.value.loginPw,
+      "email": form.value.loginEmail
+    };
+
+    this.checkInService.loginUser(user).subscribe((e) => {
+      
+
+      this.success = e.success;
+      this.msg = e.msg;
+
+      if(this.success) {
+        // const subscription = timer(2000).subscribe(()=> {this.Router.navigate(['/home']);}) 
+        this.Router.navigate(['/home']);
+      }
+    })
+
+
   }
 
   submitRegister(form: NgForm) {
-    console.log('register');
-
-    console.log(form.value);
+    
 
     let user = {
       "name": form.value.registerName,
@@ -42,8 +63,7 @@ export class CheckInComponent implements OnInit {
     };
 
     this.checkInService.registerUser(user).subscribe((e) => {
-      console.log(e);
-
+      
       this.success = e.success;
       this.msg = e.msg;
 

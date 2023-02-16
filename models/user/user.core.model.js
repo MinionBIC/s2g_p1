@@ -36,3 +36,13 @@ module.exports.newUser = function(newUser, callback) {
 module.exports.checkByEmail = async function(value) {
     return await UserCoreData.exists({ email: value});
 };
+
+module.exports.comparePassword = function(candidatePassword, hash, callback){
+    bcrypt.compare(candidatePassword, hash, (err, isMatch) => {        
+        callback(null, isMatch);
+    });
+}
+
+module.exports.getUserById = async function(id, callback) {
+  return await UserCoreData.findById(id, callback);
+}

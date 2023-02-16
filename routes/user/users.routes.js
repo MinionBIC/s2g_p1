@@ -28,12 +28,32 @@ Router.post('/userCheck', (req, res) => {
     let doc = UserCoreData.checkByEmail(req.body.email);
     doc.then((e) => 
     {
-        console.log(e); 
+        //console.log(e); 
+
         if(e == null){
-            res.send('not found');
+            res.json({success: false, msg: 'email not found'});
         }
-        else {
-            res.send('found')
+        else {                        
+            //res.json({success: true, id: e._id});            
+
+            let user = UserCoreData.getUserById(e._id);
+            user.then((e) => {
+
+                // console.log(e);
+                // res.json({success: false, msg: e})
+                UserCoreData.comparePassword(req.body.password, e.password, (err, isMatch) => {
+                    if(err) {
+                        res.json({success: false, msg: err})
+                    }
+
+                    if(isMatch) {
+                        res.json({success: true, msg: 'login success'})
+                    }else{
+                        res.json({success: false, msg: 'wrong password'})
+                    }
+                })
+
+            });
         }
     });
 

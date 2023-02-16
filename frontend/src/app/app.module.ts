@@ -15,6 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './pages/home/home.component';
 
 
 const matModules = [
@@ -30,7 +31,8 @@ const matModules = [
     AppComponent,
     StartComponent,
     HeaderComponent,
-    CheckInComponent
+    CheckInComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
