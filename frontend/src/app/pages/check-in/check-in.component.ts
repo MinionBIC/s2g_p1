@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { CheckInService } from 'src/app/services/check-in.service';
 
 @Component({
   selector: 'app-check-in',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckInComponent implements OnInit {
 
-  constructor() { }
+  constructor(private checkInService: CheckInService) { }
 
   mode : string = 'register';  
+  success : boolean;
+  msg : string;
 
   ngOnInit(): void {
   }
@@ -26,7 +30,24 @@ export class CheckInComponent implements OnInit {
     console.log('login');
   }
 
-  submitRegister() {
+  submitRegister(form: NgForm) {
     console.log('register');
+
+    console.log(form.value);
+
+    let user = {
+      "name": form.value.registerName,
+      "password": form.value.registerPw,
+      "email": form.value.registerEmail
+    };
+
+    this.checkInService.registerUser(user).subscribe((e) => {
+      console.log(e);
+
+      this.success = e.success;
+      this.msg = e.msg;
+
+      if(this.success) { this.mode = 'login'}
+    })
   }
 }
