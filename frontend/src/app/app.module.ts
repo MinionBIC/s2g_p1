@@ -16,6 +16,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
+import { HomeHeadComponent } from './components/home-head/home-head.component';
+import { HomeFeedComponent } from './components/home-feed/home-feed.component';
+import { HomeBotComponent } from './components/home-bot/home-bot.component';
 
 
 const matModules = [
@@ -32,7 +35,10 @@ const matModules = [
     StartComponent,
     HeaderComponent,
     CheckInComponent,
-    HomeComponent
+    HomeComponent,
+    HomeHeadComponent,
+    HomeFeedComponent,
+    HomeBotComponent
   ],
   imports: [
     BrowserModule,

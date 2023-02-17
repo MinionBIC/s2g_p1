@@ -1,0 +1,43 @@
+.container {
+    height: 100%;    
+
+    background-color: brown;       
+
+    // display: flex;      
+    // flex-direction: column;
+    // align-items: center;   
+    // justify-content: center;
+
+    display: grid;
+
+    
+    grid-template-columns: 300px auto;
+    grid-template-rows: 300px auto;
+
+    grid-template-areas: 
+    'head feed'
+    'bot  feed';
+    
+}
+
+.head {
+    grid-area: head;
+    padding: 2px;
+
+}
+
+.feed {
+    grid-area: feed;
+    background-color: whitesmoke;
+
+    padding: 2px;
+    
+    
+}
+
+.bot {
+    grid-area: bot;
+
+    padding: 2px;
+
+}

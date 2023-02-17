@@ -47,7 +47,7 @@ Router.post('/userCheck', (req, res) => {
                     }
 
                     if(isMatch) {
-                        res.json({success: true, msg: 'login success'})
+                        res.json({success: true, msg: 'login success', id : e._id})
                     }else{
                         res.json({success: false, msg: 'wrong password'})
                     }

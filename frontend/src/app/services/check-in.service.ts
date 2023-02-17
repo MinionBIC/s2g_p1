@@ -27,4 +27,13 @@ export class CheckInService {
 
     return this.http.post<any>(path, user, {headers: headers});
   }
+
+  getUserData(id) {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+
+    let path = 'http://localhost:3000/users/' + id + '/data';
+
+    return this.http.get<any>(path, {headers: headers});
+  }
 }

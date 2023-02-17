@@ -7,7 +7,7 @@ import { StartComponent } from './pages/start/start.component';
 const routes: Routes = [
   { path:'', component:StartComponent},
   { path:'check-in', component:CheckInComponent},
-  { path:'home', component:HomeComponent}
+  { path:'home/:id', component:HomeComponent}
 ];
 
 @NgModule({
