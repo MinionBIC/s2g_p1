@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { async } = require('rxjs');
 
 const UserPersonDataSchema = new mongoose.Schema({
     user_id : {

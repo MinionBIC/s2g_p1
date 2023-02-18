@@ -1,1 +1,12 @@
-<p>home-feed works!</p>
+<h2>my Surveys</h2>
+
+   <p *ngFor="let item of mySurveys">
+       <app-home-feed-item [item]="item"></app-home-feed-item>
+   </p> 
+
+<h2>other Surveys</h2>
+
+    <p *ngFor="let item of otherSurveys">
+        <app-home-feed-item [item]="item"></app-home-feed-item>
+    </p> 
+ 

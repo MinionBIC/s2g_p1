@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const userRoutes = require('./routes/user/users.routes');
+const surveyRoutes = require('./routes/survey/survey.routes');
 
 const app = express();
 
@@ -26,6 +27,8 @@ else {
 }
 
 app.use('/users', userRoutes);
+app.use('/survey', surveyRoutes);
+
 
 app.listen(PORT, () => { console.log('Hey Listen: ' + PORT)});
 

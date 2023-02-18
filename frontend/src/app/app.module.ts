@@ -19,6 +19,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HomeHeadComponent } from './components/home-head/home-head.component';
 import { HomeFeedComponent } from './components/home-feed/home-feed.component';
 import { HomeBotComponent } from './components/home-bot/home-bot.component';
+import { HomeFeedItemComponent } from './components/home-feed-item/home-feed-item.component';
 
 
 const matModules = [
@@ -38,7 +39,8 @@ const matModules = [
     HomeComponent,
     HomeHeadComponent,
     HomeFeedComponent,
-    HomeBotComponent
+    HomeBotComponent,
+    HomeFeedItemComponent
   ],
   imports: [
     BrowserModule,

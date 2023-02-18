@@ -24,6 +24,18 @@ Router.get('/:id/data', (req, res) => {
     })
 })
 
+Router.get('/:id/username', (req, res) => {
+
+    let user_id = req.params.id;
+
+    //console.log(user_id)
+
+    let user = UserCoreData.getUserById(user_id);
+    user.then((e) => {
+        res.json({username: e.nickname});
+    })
+})
+
 Router.post('/userCheck', (req, res) => {
     let doc = UserCoreData.checkByEmail(req.body.email);
     doc.then((e) => 
