@@ -14,6 +14,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
+import {MatListModule} from '@angular/material/list';
+
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { HomeHeadComponent } from './components/home-head/home-head.component';
@@ -28,6 +30,7 @@ const matModules = [
   MatFormFieldModule,
   MatInputModule,
   FormsModule,
+  MatListModule
 ]
 
 @NgModule({
