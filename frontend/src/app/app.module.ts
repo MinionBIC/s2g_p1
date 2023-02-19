@@ -15,6 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatListModule} from '@angular/material/list';
+import {MatStepperModule} from '@angular/material/stepper';
 
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
@@ -22,6 +23,7 @@ import { HomeHeadComponent } from './components/home-head/home-head.component';
 import { HomeFeedComponent } from './components/home-feed/home-feed.component';
 import { HomeBotComponent } from './components/home-bot/home-bot.component';
 import { HomeFeedItemComponent } from './components/home-feed-item/home-feed-item.component';
+import { SurveyCreateComponent } from './pages/survey-create/survey-create.component';
 
 
 const matModules = [
@@ -30,7 +32,8 @@ const matModules = [
   MatFormFieldModule,
   MatInputModule,
   FormsModule,
-  MatListModule
+  MatListModule,
+  MatStepperModule
 ]
 
 @NgModule({
@@ -43,7 +46,8 @@ const matModules = [
     HomeHeadComponent,
     HomeFeedComponent,
     HomeBotComponent,
-    HomeFeedItemComponent
+    HomeFeedItemComponent,
+    SurveyCreateComponent
   ],
   imports: [
     BrowserModule,

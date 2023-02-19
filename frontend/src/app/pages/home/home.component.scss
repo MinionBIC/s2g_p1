@@ -12,7 +12,7 @@
 
     
     grid-template-columns: 300px auto;
-    grid-template-rows: 250px auto;
+    grid-template-rows: 300px auto;
 
     grid-template-areas: 
     'head feed'
@@ -22,7 +22,7 @@
 
 .head {
     grid-area: head;
-    padding: 2px;
+    padding: 2px;   
 
 }
 
@@ -40,4 +40,17 @@
 
     padding: 2px;
 
+}
+
+@media (max-width: 991px) {
+    .container {        
+        
+        grid-template-rows: 1fr auto;
+
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-areas: 
+        'head bot'
+        'feed feed';
+    }   
 }

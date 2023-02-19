@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home-bot',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-bot.component.scss']
 })
 export class HomeBotComponent implements OnInit {
+
+  @Input() id;
 
   constructor() { }
 

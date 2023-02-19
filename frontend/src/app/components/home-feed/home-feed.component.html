@@ -1,12 +1,15 @@
 <h2>my Surveys</h2>
-
+<div class="mySurveys">
    <p *ngFor="let item of mySurveys">
        <app-home-feed-item [item]="item"></app-home-feed-item>
    </p> 
+</div>
 
 <h2>other Surveys</h2>
+<div class="otherSurveys">
 
     <p *ngFor="let item of otherSurveys">
         <app-home-feed-item [item]="item"></app-home-feed-item>
     </p> 
+</div>
  
