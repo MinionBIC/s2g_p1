@@ -8,8 +8,7 @@ Router.post('/new', (req , res) => {
     let newSurvey = new SurveyCoreData({
         creator_id : req.body.creator,
         title: req.body.title,
-        created_at: Date.now(),
-        start_date: Date.now()
+        created_at: Date.now()
     });
 
     SurveyCoreData.newData(newSurvey, (err, e) => {

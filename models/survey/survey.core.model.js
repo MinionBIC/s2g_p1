@@ -10,13 +10,13 @@ const SurveyCoreDataSchema = new mongoose.Schema({
         default: 'empty',
         required: true
     },
-    description : {
-        type: String,
-        default: 'empty'
-    },
     created_at : {
         type: Date,
         //default:  Date.now()
+    },
+    category : {
+        type: String,
+        default: 'empty'
     },
     start_date : {
         type: Date,
