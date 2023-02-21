@@ -16,7 +16,7 @@
                         <p>
                             <mat-form-field appearance="fill" floatLabel="always">
                                 <mat-label>Enter Survey Title</mat-label>
-                                <input matInput placeholder="Email" ngModel name="loginEmail">
+                                <input matInput placeholder="Email" ngModel name="surveyTitle">
                                 <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                                 <mat-hint>Hint</mat-hint> -->
                             </mat-form-field>
@@ -34,7 +34,7 @@
                         <p>
                             <mat-form-field appearance="fill" floatLabel="always">
                                 <mat-label>Enter Survey Category</mat-label>
-                                <mat-select>
+                                <mat-select ngModel name="surveyCategory">
                                     <mat-option value="one">Survey</mat-option>
                                     <mat-option value="two">whatever</mat-option>
                                 </mat-select>
@@ -51,7 +51,7 @@
                     <ng-template matStepLabel>Finish Your Survey</ng-template>
 
                     <div>
-                        <button mat-button>Submit</button>
+                        <button mat-button (click)="submitSurvey(nameForm, descForm)">Submit</button>
                     </div>
 
                     <div>

@@ -34,4 +34,13 @@ export class SurveyService {
 
     return this.http.get<any>(path, {headers: headers});
   }
+
+  createSurvey(surveyCore){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+
+    let path = 'http://localhost:3000/survey/new';
+
+    return this.http.post<any>(path, surveyCore, {headers: headers});
+  }
 }
