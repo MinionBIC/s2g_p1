@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute} from '@angular/router'
+import { CheckInService } from 'src/app/services/check-in.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   id;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private checkInService: CheckInService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
      this.activatedRoute.paramMap.subscribe((e) => {

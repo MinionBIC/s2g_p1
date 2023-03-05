@@ -25,6 +25,9 @@ import { HomeFeedComponent } from './components/home-feed/home-feed.component';
 import { HomeBotComponent } from './components/home-bot/home-bot.component';
 import { HomeFeedItemComponent } from './components/home-feed-item/home-feed-item.component';
 import { SurveyCreateComponent } from './pages/survey-create/survey-create.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileDisplayComponent } from './components/profile-display/profile-display.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 
 
 const matModules = [
@@ -49,7 +52,10 @@ const matModules = [
     HomeFeedComponent,
     HomeBotComponent,
     HomeFeedItemComponent,
-    SurveyCreateComponent
+    SurveyCreateComponent,
+    ProfileComponent,
+    ProfileDisplayComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,

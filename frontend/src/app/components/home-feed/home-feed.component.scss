@@ -3,10 +3,19 @@
     overflow-y: auto;
 }
 
+.otherSurveys {
+    max-height: 50%;
+    overflow-y: auto;
+}
+
 @media (max-width: 991px) {
     .mySurveys {
         max-height: 400px;
-        overflow-y: hidden;
+        overflow-y: auto;
     }
     
+    .otherSurveys {
+        max-height: 400px;
+        overflow-y: auto;
+    }
 }

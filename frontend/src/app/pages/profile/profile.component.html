@@ -1,0 +1,31 @@
+<div class="container">
+
+    
+    <mat-card>
+        <mat-card-title>
+            <mat-card-header>Profile of {{this.username}}</mat-card-header>
+        </mat-card-title>
+
+        <mat-card-actions>
+            <button mat-button (click)="setModeToDisplay()">GoToProfile</button>
+            <button mat-button (click)="setModeToEdit()">Edit Profile</button>
+
+            <button mat-button (click)="backToHome()">Back Home</button>
+        </mat-card-actions>
+    </mat-card>
+
+
+    <div *ngIf="mode == 'display'; then thenBlock else elseBlock"></div>
+</div>
+
+<ng-template #thenBlock>
+    <mat-card>
+        <app-profile-display [id]="id"></app-profile-display>
+    </mat-card>
+</ng-template>
+
+<ng-template #elseBlock>
+    <mat-card>       
+        <app-profile-edit [id]="id"></app-profile-edit>
+    </mat-card>
+</ng-template>
