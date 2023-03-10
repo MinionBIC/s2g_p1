@@ -46,6 +46,7 @@ export class CheckInComponent implements OnInit {
 
       if(this.success) {
         // const subscription = timer(2000).subscribe(()=> {this.Router.navigate(['/home']);}) 
+        localStorage.setItem('user_id', e.id);
         this.Router.navigate(['/home/' + e.id]);
       }
     })

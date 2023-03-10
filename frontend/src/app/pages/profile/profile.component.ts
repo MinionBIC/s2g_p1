@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   id;
   username;
 
-  mode = 'edit';
+  mode = 'display';
 
   constructor(private Router:Router, private activatedRoute: ActivatedRoute, private CheckInService: CheckInService) { }
 

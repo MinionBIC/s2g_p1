@@ -2,6 +2,7 @@ const express = require('express');
 const Router = express.Router();
 
 const SurveyCoreData = require('../../models/survey/survey.core.model');
+const SurveyContentData = require('../../models/survey/survey.content.model');
 
 Router.post('/new', (req , res) => {
 
@@ -42,6 +43,14 @@ Router.get('/others/:id', (req, res) => {
     let creator = req.params.id;
 
     SurveyCoreData.getDataByOthers(creator).then((e) => {
+        res.json(e);
+    })
+})
+
+Router.get('/:id', (req, res) => {
+    let survey = req.params.id;
+
+    SurveyCoreData.findById(survey).then((e) => {
         res.json(e);
     })
 })

@@ -28,6 +28,7 @@ import { SurveyCreateComponent } from './pages/survey-create/survey-create.compo
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileDisplayComponent } from './components/profile-display/profile-display.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
+import { SurveyHubComponent } from './pages/survey-hub/survey-hub.component';
 
 
 const matModules = [
@@ -55,7 +56,8 @@ const matModules = [
     SurveyCreateComponent,
     ProfileComponent,
     ProfileDisplayComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    SurveyHubComponent
   ],
   imports: [
     BrowserModule,
