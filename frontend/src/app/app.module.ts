@@ -29,6 +29,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileDisplayComponent } from './components/profile-display/profile-display.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { SurveyHubComponent } from './pages/survey-hub/survey-hub.component';
+import { FeedBackHubComponent } from './pages/feed-back-hub/feed-back-hub.component';
 
 
 const matModules = [
@@ -57,7 +58,8 @@ const matModules = [
     ProfileComponent,
     ProfileDisplayComponent,
     ProfileEditComponent,
-    SurveyHubComponent
+    SurveyHubComponent,
+    FeedBackHubComponent
   ],
   imports: [
     BrowserModule,
