@@ -11,16 +11,17 @@
                     <ng-template matStepLabel>Start Creating Your Survey</ng-template>
 
                     <form #nameForm="ngForm">
-
+                        <div class="form-container">
                         <p>Name Your Survey</p>
-                        <p>
+                        
                             <mat-form-field appearance="fill" floatLabel="always">
                                 <mat-label>Enter Survey Title</mat-label>
-                                <input matInput placeholder="Email" ngModel name="surveyTitle">
+                                <input matInput placeholder="Survey Title" ngModel name="surveyTitle">
                                 <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                                 <mat-hint>Hint</mat-hint> -->
                             </mat-form-field>
-                        </p>
+                        
+                        </div>
                     </form>
 
                     <div>
@@ -31,7 +32,8 @@
                     <ng-template matStepLabel>Customize Category</ng-template>
 
                     <form #descForm="ngForm">
-                        <p>
+                        <div class="form-container">
+                        
                             <mat-form-field appearance="fill" floatLabel="always">
                                 <mat-label>Enter Survey Category</mat-label>
                                 <mat-select ngModel name="surveyCategory">
@@ -39,7 +41,8 @@
                                     <mat-option value="two">whatever</mat-option>
                                 </mat-select>
                             </mat-form-field>
-                        </p>
+                        
+                        </div>  
                     </form>
 
                     <div>

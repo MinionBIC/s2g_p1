@@ -1,6 +1,6 @@
 <div class="container">
 
-    
+
     <mat-card>
         <mat-card-title>
             <mat-card-header>Feed Back Tank</mat-card-header>
@@ -8,6 +8,8 @@
 
         <mat-card-actions>
             <button mat-button (click)="backToHome()">Back Home</button>
+            <button mat-button (click)="setModeToEdit()">New Feedback</button>
+            <button mat-button (click)="setModeToDisplay()">All Feedback</button>
         </mat-card-actions>
     </mat-card>
 
@@ -30,7 +32,7 @@
                         Kategorie:
                     </span>
                     <span mat-title>
-                        
+
                     </span>
                 </mat-list-item>
                 <mat-list-item>
@@ -38,7 +40,7 @@
                         Erstellt am:
                     </span>
                     <span mat-title>
-                        
+
                     </span>
                 </mat-list-item>
                 <mat-list-item>
@@ -46,7 +48,7 @@
                         Beschreibung:
                     </span>
                     <span mat-title>
-                        
+
                     </span>
                 </mat-list-item>
             </mat-list>
@@ -55,6 +57,7 @@
             <button mat-button>Ignore Feedback</button>
         </mat-card-actions>
     </mat-card>
+
 
     <mat-card>
         <mat-card-title>
@@ -70,7 +73,7 @@
                         Kategorie:
                     </span>
                     <span mat-title>
-                        
+
                     </span>
                 </mat-list-item>
                 <mat-list-item>
@@ -78,7 +81,7 @@
                         Erstellt am:
                     </span>
                     <span mat-title>
-                        
+
                     </span>
                 </mat-list-item>
                 <mat-list-item>
@@ -86,7 +89,7 @@
                         Beschreibung:
                     </span>
                     <span mat-title>
-                        
+
                     </span>
                 </mat-list-item>
             </mat-list>
@@ -95,40 +98,30 @@
             <button mat-button>Ignore Feedback</button>
         </mat-card-actions>
     </mat-card>
+
 </ng-template>
 
 <ng-template #elseBlock>
-    <mat-card>       
-        <mat-card>
-            <mat-card-header>
-                <!-- <div mat-card-avatar class="example-header-image"></div> -->
-                <mat-card-title>Melde Feedback</mat-card-title>
-                <mat-card-subtitle>this is Feedback card</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content style="text-align: center;">
-                <form #loginForm="ngForm">
-                    <p>
-                        <mat-form-field appearance="fill">
-                            <mat-label>Fill form field</mat-label>
-                            <input matInput placeholder="Email" ngModel name="loginEmail">
-                            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                        <mat-hint>Hint</mat-hint> -->
-                        </mat-form-field>
-                    </p>
-                    <p>
-                        <mat-form-field appearance="fill">
-                            <mat-label>Fill form field</mat-label>
-                            <input matInput placeholder="Password" type="password" ngModel name="loginPw">
-                            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                        <mat-hint>Hint</mat-hint> -->
-                        </mat-form-field>
-                    </p>
-                </form>
-            </mat-card-content>
-            <mat-card-actions style="text-align: center;">
-                <button mat-button >SUBMIT LOGIN</button>
-            </mat-card-actions>
-        </mat-card>
 
+
+    <mat-card>
+        <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title>Melde Feedback</mat-card-title>
+            <mat-card-subtitle>this is Feedback card</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content style="text-align: center;">
+            <div class="form-container">
+                <mat-form-field>
+                    <mat-select placeholder="Select"></mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions style="text-align: center;">
+            <button mat-button>SUBMIT LOGIN</button>
+        </mat-card-actions>
     </mat-card>
+
+
+
 </ng-template>

@@ -7,33 +7,35 @@
             </mat-card-header>
             <mat-card-content>
                 <form #registerForm="ngForm">
-                    <p>
-                        Vorname: 
+                    <div class="form-container">
+                    
+                        
                         <mat-form-field appearance="fill">
-                            <mat-label>Fill form field</mat-label>
-                            <input matInput placeholder="Username" ngModel name="registerName">
+                            <mat-label>Vorname</mat-label>
+                            <input matInput placeholder="vorname" ngModel name="registerName">
                             <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
                             <!-- <mat-hint>Hint</mat-hint> -->
                         </mat-form-field>
-                    </p>
-                    <p>
-                        Nachname: 
+                    
+                    
+                         
                         <mat-form-field appearance="fill">
-                            <mat-label>Fill form field</mat-label>
-                            <input matInput placeholder="Email" ngModel name="registerEmail">
+                            <mat-label>Nachname</mat-label>
+                            <input matInput placeholder="nachname" ngModel name="registerEmail">
                             <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                             <mat-hint>Hint</mat-hint> -->
                         </mat-form-field>
-                    </p>
-                    <p>
-                        Alter: 
+                    
+                    
+                        
                         <mat-form-field appearance="fill">
-                            <mat-label>Fill form field</mat-label>
-                            <input matInput placeholder="Password" type="password" ngModel name="registerPw">
+                            <mat-label>Alter</mat-label>
+                            <input matInput placeholder="Alter" type="password" ngModel name="registerPw">
                             <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                             <mat-hint>Hint</mat-hint> -->
                         </mat-form-field>
-                    </p>
+                    
+                    </div>
                 </form>
             </mat-card-content>
             <mat-card-actions style="text-align: center;">

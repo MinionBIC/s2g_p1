@@ -13,13 +13,22 @@
 .welcome {
     background-color: white;
 
-    max-width: 650px;
-    max-height: 80%;
+    // max-width: 650px;
+    // max-height: 80%;
 
-    min-width: 400px;
+    // min-width: 400px;
 }
 
 .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-container > * {
+    width: 100%;
   }
