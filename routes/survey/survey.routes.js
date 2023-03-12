@@ -55,4 +55,9 @@ Router.get('/:id', (req, res) => {
     })
 })
 
+Router.post('/:id/comment', (req,res) => {})
+Router.post('/:id/awnser', (req,res) => {
+    
+})
+
 module.exports = Router;
