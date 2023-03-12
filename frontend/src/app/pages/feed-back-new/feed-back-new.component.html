@@ -1,0 +1,47 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title>Melde Feedback</mat-card-title>
+            <mat-card-subtitle>this is Feedback card</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content style="text-align: center;">
+            <form>
+                <div class="form-container">
+                    <mat-form-field >
+                        <mat-label>Ersteller</mat-label>
+                        <input matInput value="{{user}}" readonly="true" style="cursor: pointer;">
+                    </mat-form-field>
+                    <mat-form-field >
+                        <mat-label>Titel</mat-label>
+                        <input name="Feedback_title" matInput placeholder="title" [(ngModel)]="title" placeholder="Titel">
+                    </mat-form-field>
+                    <mat-form-field >
+                        <mat-label>Wo?</mat-label>
+                        <input matInput placeholder="Location" value="{{location}}" readonly="true" style="cursor: pointer;">
+                    </mat-form-field> 
+                    <mat-form-field>                        
+                        <mat-select name="Category" [(ngModel)]="category" placeholder="Kategorie">
+                            <mat-optgroup label="Feeback">
+                                <mat-option value="Function">Funktion</mat-option>
+                                <mat-option value="Design">Design</mat-option>
+                                
+                            </mat-optgroup>
+                            <mat-optgroup label="BugReport">
+                                <mat-option value="Bug">Fehler</mat-option>
+                                
+                            </mat-optgroup>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Beschreibung</mat-label>
+                        <textarea name="Description" matInput [(ngModel)]="description" placeholder="Beschreibung"></textarea>
+                    </mat-form-field>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions style="text-align: center;">
+            <button mat-button (click)="createFeedback()">SUBMIT Feedback</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

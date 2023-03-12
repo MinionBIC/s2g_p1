@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 const userRoutes = require('./routes/user/users.routes');
 const surveyRoutes = require('./routes/survey/survey.routes');
+const feedbackRoutes = require('./routes/feedback/feedback.routes');
 
 const app = express();
 
@@ -28,7 +29,7 @@ else {
 
 app.use('/users', userRoutes);
 app.use('/survey', surveyRoutes);
-
+app.use('/feedback', feedbackRoutes);
 
 app.listen(PORT, () => { console.log('Hey Listen: ' + PORT)});
 

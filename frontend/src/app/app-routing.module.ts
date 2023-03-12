@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CheckInComponent } from './pages/check-in/check-in.component';
 import { FeedBackHubComponent } from './pages/feed-back-hub/feed-back-hub.component';
+import { FeedBackNewComponent } from './pages/feed-back-new/feed-back-new.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { StartComponent } from './pages/start/start.component';
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path:'home/:id/surveyCreate', component:SurveyCreateComponent},
   { path:'profile/:id', component:ProfileComponent},
   { path:'survey-hub/:id', component:SurveyHubComponent},
-  { path:'feedbackhub', component:FeedBackHubComponent}
+  { path:'feedback-hub', component:FeedBackHubComponent},
+  { path:'feedback-new', component:FeedBackNewComponent}
 ];
 
 @NgModule({

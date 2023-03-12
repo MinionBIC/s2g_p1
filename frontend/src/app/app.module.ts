@@ -30,6 +30,8 @@ import { ProfileDisplayComponent } from './components/profile-display/profile-di
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { SurveyHubComponent } from './pages/survey-hub/survey-hub.component';
 import { FeedBackHubComponent } from './pages/feed-back-hub/feed-back-hub.component';
+import { FeedBackNewComponent } from './pages/feed-back-new/feed-back-new.component';
+import { FeedBackItemComponent } from './components/feed-back-item/feed-back-item.component';
 
 
 const matModules = [
@@ -59,7 +61,9 @@ const matModules = [
     ProfileDisplayComponent,
     ProfileEditComponent,
     SurveyHubComponent,
-    FeedBackHubComponent
+    FeedBackHubComponent,
+    FeedBackNewComponent,
+    FeedBackItemComponent
   ],
   imports: [
     BrowserModule,

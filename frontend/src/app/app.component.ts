@@ -10,4 +10,9 @@ export class AppComponent {
   title = 'frontend';
 
   constructor(public Router: Router) {}
+
+  createFeedback(){
+    localStorage.setItem('last-location', this.Router.url);
+    this.Router.navigate(['/feedback-new'] );
+  }
 }

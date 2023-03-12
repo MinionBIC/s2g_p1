@@ -1,0 +1,45 @@
+<mat-card-title>
+    {{item.title}}
+</mat-card-title>
+<mat-card-subtitle>
+    {{username}}
+</mat-card-subtitle>
+<mat-card-content>
+    <mat-list>
+        <mat-list-item>
+            <span mat-line>
+                Kategorie:
+            </span>
+            <span mat-title>
+                {{item.category}}
+            </span>
+        </mat-list-item>
+        <mat-list-item>
+            <span mat-line>
+                Location:
+            </span>
+            <span mat-title>
+                {{item.location}}
+            </span>
+        </mat-list-item>
+        <mat-list-item>
+            <span mat-line>
+                Erstellt am:
+            </span>
+            <span mat-title>
+                {{item.created_at |date}}
+            </span>
+        </mat-list-item>
+        <mat-list-item>
+            <span mat-line>
+                Beschreibung:
+            </span>
+            <span mat-line>
+                {{item.description}}
+            </span>
+        </mat-list-item>
+    </mat-list>
+</mat-card-content>
+<mat-card-actions>
+    <button mat-button>Ignore Feedback</button>
+</mat-card-actions>

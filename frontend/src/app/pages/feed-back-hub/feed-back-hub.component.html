@@ -7,121 +7,13 @@
         </mat-card-title>
 
         <mat-card-actions>
-            <button mat-button (click)="backToHome()">Back Home</button>
-            <button mat-button (click)="setModeToEdit()">New Feedback</button>
-            <button mat-button (click)="setModeToDisplay()">All Feedback</button>
+            <button mat-button (click)="backToHome()">Back Home</button>           
         </mat-card-actions>
     </mat-card>
 
 
-    <div *ngIf="mode == 'display'; then thenBlock else elseBlock"></div>
+    <mat-card *ngFor="let ticket of tickets">
+       <app-feed-back-item [item]="ticket"></app-feed-back-item>
+    </mat-card>
+    
 </div>
-
-<ng-template #thenBlock>
-    <mat-card>
-        <mat-card-title>
-            Feeback Report Number #1
-        </mat-card-title>
-        <mat-card-subtitle>
-            Wer hat es gemeldet?
-        </mat-card-subtitle>
-        <mat-card-content>
-            <mat-list>
-                <mat-list-item>
-                    <span mat-line>
-                        Kategorie:
-                    </span>
-                    <span mat-title>
-
-                    </span>
-                </mat-list-item>
-                <mat-list-item>
-                    <span mat-line>
-                        Erstellt am:
-                    </span>
-                    <span mat-title>
-
-                    </span>
-                </mat-list-item>
-                <mat-list-item>
-                    <span mat-line>
-                        Beschreibung:
-                    </span>
-                    <span mat-title>
-
-                    </span>
-                </mat-list-item>
-            </mat-list>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-button>Ignore Feedback</button>
-        </mat-card-actions>
-    </mat-card>
-
-
-    <mat-card>
-        <mat-card-title>
-            Feeback Report Number #2
-        </mat-card-title>
-        <mat-card-subtitle>
-            Wer hat es gemeldet?
-        </mat-card-subtitle>
-        <mat-card-content>
-            <mat-list>
-                <mat-list-item>
-                    <span mat-line>
-                        Kategorie:
-                    </span>
-                    <span mat-title>
-
-                    </span>
-                </mat-list-item>
-                <mat-list-item>
-                    <span mat-line>
-                        Erstellt am:
-                    </span>
-                    <span mat-title>
-
-                    </span>
-                </mat-list-item>
-                <mat-list-item>
-                    <span mat-line>
-                        Beschreibung:
-                    </span>
-                    <span mat-title>
-
-                    </span>
-                </mat-list-item>
-            </mat-list>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-button>Ignore Feedback</button>
-        </mat-card-actions>
-    </mat-card>
-
-</ng-template>
-
-<ng-template #elseBlock>
-
-
-    <mat-card>
-        <mat-card-header>
-            <!-- <div mat-card-avatar class="example-header-image"></div> -->
-            <mat-card-title>Melde Feedback</mat-card-title>
-            <mat-card-subtitle>this is Feedback card</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content style="text-align: center;">
-            <div class="form-container">
-                <mat-form-field>
-                    <mat-select placeholder="Select"></mat-select>
-                </mat-form-field>
-            </div>
-        </mat-card-content>
-        <mat-card-actions style="text-align: center;">
-            <button mat-button>SUBMIT LOGIN</button>
-        </mat-card-actions>
-    </mat-card>
-
-
-
-</ng-template>
