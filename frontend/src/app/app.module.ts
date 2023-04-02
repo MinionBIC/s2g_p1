@@ -10,6 +10,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { CheckInComponent } from './pages/check-in/check-in.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { SurveyModule } from "survey-angular-ui";
+
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -32,6 +34,11 @@ import { SurveyHubComponent } from './pages/survey-hub/survey-hub.component';
 import { FeedBackHubComponent } from './pages/feed-back-hub/feed-back-hub.component';
 import { FeedBackNewComponent } from './pages/feed-back-new/feed-back-new.component';
 import { FeedBackItemComponent } from './components/feed-back-item/feed-back-item.component';
+import { SurveyEditorComponent } from './pages/survey-editor/survey-editor.component';
+import { SurveyViewComponent } from './pages/survey-view/survey-view.component';
+import { SurveyResultComponent } from './pages/survey-result/survey-result.component';
+import { SurveyCommentComponent } from './pages/survey-comment/survey-comment.component';
+import { SurveyViewerComponent } from './components/survey-viewer/survey-viewer.component';
 
 
 const matModules = [
@@ -63,13 +70,19 @@ const matModules = [
     SurveyHubComponent,
     FeedBackHubComponent,
     FeedBackNewComponent,
-    FeedBackItemComponent
+    FeedBackItemComponent,
+    SurveyEditorComponent,
+    SurveyViewComponent,
+    SurveyResultComponent,
+    SurveyCommentComponent,
+    SurveyViewerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    SurveyModule,
     matModules
   ],
   providers: [

@@ -55,9 +55,24 @@ Router.get('/:id', (req, res) => {
     })
 })
 
-Router.post('/:id/comment', (req,res) => {})
-Router.post('/:id/awnser', (req,res) => {
+Router.get('/:id/comment', (req,res) => {
     
+})
+
+Router.post('/:id/comment-create', (req,res) => {
+    
+})
+
+Router.post('/:id/awnser', (req,res) => {
+
+})
+
+Router.post('/:id/content', (req,res) => {
+
+})
+
+Router.get('/:id/result', (req,res) => {
+
 })
 
 module.exports = Router;

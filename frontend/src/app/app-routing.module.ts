@@ -7,7 +7,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { StartComponent } from './pages/start/start.component';
 import { SurveyCreateComponent } from './pages/survey-create/survey-create.component';
+import { SurveyEditorComponent } from './pages/survey-editor/survey-editor.component';
 import { SurveyHubComponent } from './pages/survey-hub/survey-hub.component';
+import { SurveyResultComponent } from './pages/survey-result/survey-result.component';
+import { SurveyViewComponent } from './pages/survey-view/survey-view.component';
 
 const routes: Routes = [
   { path:'', component:StartComponent},
@@ -15,7 +18,11 @@ const routes: Routes = [
   { path:'home/:id', component:HomeComponent},
   { path:'home/:id/surveyCreate', component:SurveyCreateComponent},
   { path:'profile/:id', component:ProfileComponent},
+  { path:'survey-create/', component:SurveyCreateComponent},
   { path:'survey-hub/:id', component:SurveyHubComponent},
+  { path:'survey-editor', component:SurveyEditorComponent},
+  { path:'survey-view/:id', component:SurveyViewComponent},
+  { path:'survey-result/:id', component:SurveyResultComponent},
   { path:'feedback-hub', component:FeedBackHubComponent},
   { path:'feedback-new', component:FeedBackNewComponent}
 ];
