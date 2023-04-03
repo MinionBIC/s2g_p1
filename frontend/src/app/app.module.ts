@@ -39,6 +39,7 @@ import { SurveyViewComponent } from './pages/survey-view/survey-view.component';
 import { SurveyResultComponent } from './pages/survey-result/survey-result.component';
 import { SurveyCommentComponent } from './pages/survey-comment/survey-comment.component';
 import { SurveyViewerComponent } from './components/survey-viewer/survey-viewer.component';
+import { SurveyCreatorComponent } from './components/survey-creator/survey-creator.component';
 
 
 const matModules = [
@@ -75,7 +76,8 @@ const matModules = [
     SurveyViewComponent,
     SurveyResultComponent,
     SurveyCommentComponent,
-    SurveyViewerComponent
+    SurveyViewerComponent,
+    SurveyCreatorComponent
   ],
   imports: [
     BrowserModule,

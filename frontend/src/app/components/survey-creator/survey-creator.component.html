@@ -1,0 +1,76 @@
+<!-- Editor -->
+<div>
+    <mat-stepper orientation="vertical" style="width: 100%;" selectedIndex="{{currIdx}}">
+        <mat-step>
+            <ng-template matStepLabel>Choose your Type of Question</ng-template>
+
+            <form #categoryForm="ngForm">
+                <div class="form-container">
+                
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Enter Survey Category</mat-label>
+                        <mat-select ngModel name="surveyCategory">
+                            <mat-option value="text">text</mat-option>        
+                            <mat-option value="option">option</mat-option>                      
+                        </mat-select>
+                    </mat-form-field>
+                
+                </div>  
+            </form>
+
+        </mat-step>
+        <mat-step *ngIf="this.cat_mode == 'text'">
+            <ng-template matStepLabel>What Question do you have?</ng-template>
+
+            <form #titleForm="ngForm">
+                <div class="form-container">
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Enter Survey Title</mat-label>
+                        <input matInput placeholder="Survey Title" ngModel name="surveyTitle">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+                </div>
+            </form>
+
+            <div>
+                <button mat-button (click)="getText(categoryForm, titleForm)">Get Json</button>
+            </div>
+        </mat-step>
+        <mat-step *ngIf="this.cat_mode == 'text'">
+            <ng-template matStepLabel>What Question do you have?</ng-template>
+
+            <form #titleForm="ngForm">
+                <div class="form-container">
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Enter Survey Title</mat-label>
+                        <input matInput placeholder="Survey Title" ngModel name="surveyTitle">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+                </div>
+            </form>
+
+            <div>
+                <button mat-button (click)="getText(categoryForm, titleForm)">Get Json</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Your Survey Options</ng-template>
+
+            
+            <div>
+                
+                <button mat-button (click)="getJson(this.surveyJson)">Send Json</button>
+                <button mat-button (click)="goToFirst()">Go To First</button>
+            </div>
+        </mat-step>       
+    </mat-stepper>
+</div>
+
+<!-- View -->
+<div>
+
+</div>
+
+

@@ -16,23 +16,24 @@ export class SurveyEditorComponent implements OnInit {
 
   surveyJson;
 
+  mode = 'editor';
 
   ngOnInit(): void {
-    this.setExample();
+    
+  }  
+
+  goToEditor(){
+    this.mode = 'editor';
+    this.surveyJson = '';
   }
 
-  setExample() {
-    this.surveyJson = {
-      elements: [{
-        name: "FirstName",
-        title: "Enter your first name:",
-        type: "text"
-      }, {
-        name: "LastName",
-        title: "Enter your last name:",
-        type: "text"
-      }]
-    };
+  goToPreview(){
+    this.mode = 'preview';
+  }
+  
+  getSurvey(value: string){
+    this.surveyJson = value;
+    this.goToPreview();
   }
 
 }

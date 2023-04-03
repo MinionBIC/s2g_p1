@@ -1,21 +1,41 @@
-<p>survey-editor works!</p>
-
 <mat-card>
     <mat-card-header>
         <mat-card-title>Header</mat-card-title>
     </mat-card-header>
-</mat-card>
-
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Preview</mat-card-title>
-    </mat-card-header>
-
-    <mat-card-content>
-        <app-survey-viewer [surveyJson]="surveyJson"></app-survey-viewer>
-    </mat-card-content>
-
     <mat-card-actions>
-        
+        <button mat-button (click)="goToEditor()">Editor</button>
+        <button mat-button (click)="goToPreview()">Preview</button>
     </mat-card-actions>
 </mat-card>
+
+<div *ngIf="this.mode == 'editor'">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Editor</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <app-survey-creator (getSurveyEvent)="getSurvey($event)"></app-survey-creator>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-button (click)="goToPreview()">Show Preview</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<div *ngIf="this.mode == 'preview'">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Preview</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <app-survey-viewer [surveyJson]="surveyJson"></app-survey-viewer>
+        </mat-card-content>
+
+        <mat-card-actions>
+
+        </mat-card-actions>
+    </mat-card>
+</div>
