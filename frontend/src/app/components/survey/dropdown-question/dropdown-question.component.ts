@@ -41,6 +41,15 @@ export class DropdownQuestionComponent implements OnInit {
   }
 
   setQuestion(form: NgForm){  
+
+     //hacky lol
+     if(!(this.checkInput(form.value.textValue))) {
+
+      this.state = "err";
+      this.msg = "err set: txt null";
+      return;
+    }
+
     this.current_question = {
       "name":"test",
       "type":"dropdown",
@@ -64,8 +73,8 @@ export class DropdownQuestionComponent implements OnInit {
     this.getValueEvent.emit(this.current_question)
     this.clearValues(form);
 
-    // this.msg = "success set: " + this.current_question.name + ' ' + this.current_question.state;
-    // this.action_text = "add another question"
+    this.msg = "success set: " + this.current_question.name + ' ' + this.current_question.state;
+    this.action_text = "add another question"
   }
 
   checkInput(value: string) {

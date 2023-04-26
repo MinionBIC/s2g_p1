@@ -44,6 +44,13 @@ import { SurveyCreatorComponent } from './components/survey-creator/survey-creat
 import { TextQuestionComponent } from './components/survey/text-question/text-question.component';
 import { DropdownQuestionComponent } from './components/survey/dropdown-question/dropdown-question.component';
 import { CheckQuestionComponent } from './components/survey/check-question/check-question.component';
+import { RadioQuestionComponent } from './components/survey/radio-question/radio-question.component';
+import { DateQuestionComponent } from './components/survey/date-question/date-question.component';
+import { NumericQuestionComponent } from './components/survey/numeric-question/numeric-question.component';
+import { RankingQuestionComponent } from './components/survey/ranking-question/ranking-question.component';
+import { RatingQuestionComponent } from './components/survey/rating-question/rating-question.component';
+import { BoolQuestionComponent } from './components/survey/bool-question/bool-question.component';
+import { ColorQuestionComponent } from './components/survey/color-question/color-question.component';
 
 
 const matModules = [
@@ -85,7 +92,14 @@ const matModules = [
     SurveyCreatorComponent,
     TextQuestionComponent,
     DropdownQuestionComponent,
-    CheckQuestionComponent
+    CheckQuestionComponent,
+    RadioQuestionComponent,
+    DateQuestionComponent,
+    NumericQuestionComponent,
+    RankingQuestionComponent,
+    RatingQuestionComponent,
+    BoolQuestionComponent,
+    ColorQuestionComponent
   ],
   imports: [
     BrowserModule,

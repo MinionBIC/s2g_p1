@@ -19,7 +19,7 @@
 </mat-card-actions> -->
 </mat-card>
 
-<mat-card>    
+<mat-card style="min-height: 200px; overflow-y: auto;">    
     <mat-card-content>
 
         <div *ngIf="surveyCategory == 'text'">
@@ -27,7 +27,7 @@
         </div>
 
         <div *ngIf="surveyCategory == 'check'">
-            <app-check-question></app-check-question>
+            <app-check-question (getValueEvent)="getCheckQuestion($event)"></app-check-question>
         </div>
 
         <div *ngIf="surveyCategory == 'opt'">
