@@ -31,7 +31,7 @@
         </div>
 
         <div *ngIf="surveyCategory == 'opt'">
-            <app-dropdown-question></app-dropdown-question>
+            <app-dropdown-question (getValueEvent)="getDropdownQuestion($event)"></app-dropdown-question>
         </div>
 
 

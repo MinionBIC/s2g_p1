@@ -16,7 +16,7 @@ export class SurveyCreatorComponent implements OnInit {
 
   @Output() getSurveyEvent = new EventEmitter<string>();
 
-  surveyCategory = 'text';
+  surveyCategory = 'opt';
 
   // constructor() { }
 
@@ -64,10 +64,22 @@ export class SurveyCreatorComponent implements OnInit {
   getTextQuestion(value){
 
     if(value.name == 'test') {
-      value.name = value.name + this.curr_elements.length.toString();
+      value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
     };    
 
     this.curr_elements.push(value)
+  }
+
+  getDropdownQuestion(value){
+    if(value.name == 'test') {
+      value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
+    }; 
+
+    this.curr_elements.push(value)
+  }
+
+  getCheckQuestion(value){
+
   }
 
 }
