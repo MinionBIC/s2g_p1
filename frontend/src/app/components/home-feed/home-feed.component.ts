@@ -18,13 +18,11 @@ export class HomeFeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.SurveyService.getUserSurveys(this.id).subscribe((e) => {
-      this.mySurveys = e;
-      console.log(this.mySurveys)
+      this.mySurveys = e;      
     });
 
     this.SurveyService.getOtherSurveys(this.id).subscribe((e) => {
-      this.otherSurveys = e;
-      console.log(this.mySurveys)
+      this.otherSurveys = e;     
     });
 
   }

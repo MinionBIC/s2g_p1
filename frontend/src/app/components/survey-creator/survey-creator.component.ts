@@ -9,78 +9,60 @@ import { NgForm } from '@angular/forms';
 })
 export class SurveyCreatorComponent implements OnInit {
   
-
   surveyJson;
+  curr_elements = [];
+
+  
 
   @Output() getSurveyEvent = new EventEmitter<string>();
 
-  surveyCategory = 'opt';
+  surveyCategory = 'text';
 
-  constructor() { }
+  // constructor() { }
 
-  curr_elements = [];
+  
 
-  curr_opt = [];
+  // curr_opt = [];
 
-  textValue;
+  // textValue;
 
   ngOnInit(): void {
-    this.setExample()
+     //this.setExample()
+     
   }
 
-  setExample() {  
-    this.surveyJson = {
-      elements: [{
-        name: "FirstName",
-        title: "Enter your first name:",
-        type: "text"
-      }, {
-        name: "LastName",
-        title: "Enter your last name:",
-        type: "text"
-      }, {
-        name: "gender",
-        title: "Choose your gender",
-        type: "dropdown",
-        choises: ["male", "alpha", "beta", "apache helicopter", "brot"]
-      }
-    ]
-    };   
-  }
-
-  getJson() {    
-    this.setSurveyJson();
-    this.getSurveyEvent.emit(this.surveyJson);
-  }
-
-  buildElementFromText(textForm: NgForm) {
-    let curr_element = {
-      name: 'dummy_' + this.curr_elements.length.toString(),
-      title: textForm.value.textValue,
-      type: "text"
-    };
-
-    this.curr_elements.push(curr_element);
-  }
-
-  buildElementFromCheck(checkForm: NgForm) {
-
-  }
-
-  buildElementFromOpt(optForm: NgForm) {
-
-  }
-
-  addOption(option: string){
-    this.curr_opt.push(option);
-    console.log(option);
-    console.log(this.curr_opt);
-  }
+  // setExample() {  
+  //   this.curr_elements = [{
+  //       "name": "FirstName",
+  //       "title": "Enter your first name:",
+  //       "type": "text"
+  //     }, {
+  //       "name": "LastName",
+  //       "title": "Enter your last name:",
+  //       "type": "text"
+  //     }, {
+  //       "name": "gender",
+  //       "title": "Choose your gender",
+  //       "type": "dropdown",
+  //       "showOtherItem": true,
+  //       "choices": ["male", "alpha", "beta", "apache helicopter", "brot"]
+  //     }
+  //   ];   
+  // }
 
   setSurveyJson(){
     this.surveyJson = {
       elements: this.curr_elements
     }
+  }
+
+  getJsonExample() {    
+    this.setSurveyJson();
+    this.getSurveyEvent.emit(this.surveyJson);
+  }
+
+  getTextQuestion(value){
+    this.curr_elements.push(value)
   }
 
 }

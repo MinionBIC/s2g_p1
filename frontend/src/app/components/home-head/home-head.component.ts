@@ -20,8 +20,7 @@ export class HomeHeadComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkInService.getUserData(this.id).subscribe((e) => {
-      this.userData = e.data;
-    })
+      this.userData = e.data;    })
 
     
   }

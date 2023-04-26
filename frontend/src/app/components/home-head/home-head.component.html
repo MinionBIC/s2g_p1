@@ -1,5 +1,5 @@
 <mat-card >
-    <mat-card-header>
+    <mat-card-header *ngIf="userData">
         <p style="text-align: center;">{{userData.vorname}} {{userData.nachname}}</p>        
     </mat-card-header>
 

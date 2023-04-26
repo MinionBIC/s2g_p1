@@ -40,6 +40,9 @@ import { SurveyResultComponent } from './pages/survey-result/survey-result.compo
 import { SurveyCommentComponent } from './pages/survey-comment/survey-comment.component';
 import { SurveyViewerComponent } from './components/survey-viewer/survey-viewer.component';
 import { SurveyCreatorComponent } from './components/survey-creator/survey-creator.component';
+import { TextQuestionComponent } from './components/survey/text-question/text-question.component';
+import { DropdownQuestionComponent } from './components/survey/dropdown-question/dropdown-question.component';
+import { CheckQuestionComponent } from './components/survey/check-question/check-question.component';
 
 
 const matModules = [
@@ -77,7 +80,10 @@ const matModules = [
     SurveyResultComponent,
     SurveyCommentComponent,
     SurveyViewerComponent,
-    SurveyCreatorComponent
+    SurveyCreatorComponent,
+    TextQuestionComponent,
+    DropdownQuestionComponent,
+    CheckQuestionComponent
   ],
   imports: [
     BrowserModule,

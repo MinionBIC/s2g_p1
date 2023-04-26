@@ -1,0 +1,45 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Text Question Form
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form #textForm="ngForm">
+            <div class="form-container">
+                <mat-form-field appearance="fill" floatLabel="always">
+                    <mat-label>Enter Survey Text</mat-label>
+                    <input matInput ngModel name="textValue">
+                </mat-form-field>                
+            </div>
+        </form>
+        <mat-card *ngIf="state != null && state == 'set'" style="background-color: green; color: white;">
+            {{this.msg}}
+        </mat-card>
+        <mat-card *ngIf="state != null && state == 'err'" style="background-color: red; color: white;">
+            {{this.msg}}
+        </mat-card>
+    </mat-card-content>
+    <mat-card-actions>
+        <div>        
+            <button class="form-button" mat-button [disabled]="current_question != null" (click)="addQuestion(textForm)">Set Question</button>            
+            <button class="form-button" mat-button [disabled]="current_question == null" (click)="sendValue()">Add To Survey</button>
+        </div>
+        <!-- <div>
+            <button mat-button (click)="sendValue()">Add To Survey</button>
+        </div> -->
+        <div>
+            <button class="form-button" mat-button [disabled]="current_question == null" (click)="preview()">Preview</button>
+            <button class="form-button" mat-button [disabled]="current_question == null" (click)="clearForm(textForm)">Clear Form</button>
+        </div>
+        <div>
+            <!-- <button mat-button [disabled]="current_question == null" (click)="clearForm(textForm)">Clear Form</button> -->
+        </div>
+        
+    </mat-card-actions>
+    <mat-card-footer>
+        <mat-card *ngIf="surveyJson != null">
+            <app-survey-viewer [surveyJson]="surveyJson"></app-survey-viewer>
+        </mat-card>
+    </mat-card-footer>
+</mat-card>
