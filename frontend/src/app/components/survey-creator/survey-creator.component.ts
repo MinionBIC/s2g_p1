@@ -62,6 +62,11 @@ export class SurveyCreatorComponent implements OnInit {
   }
 
   getTextQuestion(value){
+
+    if(value.name == 'test') {
+      value.name = value.name + this.curr_elements.length.toString();
+    };    
+
     this.curr_elements.push(value)
   }
 

@@ -14,22 +14,62 @@
             </div>
         </form>
         <mat-card *ngIf="state != null && state == 'set'" style="background-color: green; color: white;">
-            {{this.msg}}
+            <mat-card-header>
+                <mat-card-title>HURRAY!!</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{this.msg}}</p>
+                {{this.action_text}}
+            </mat-card-content>
         </mat-card>
+
+        <mat-card *ngIf="state != null && state == 'set'">
+            <mat-card-header>
+                <mat-card-title>
+                    Optional Settings
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="form-container">
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Input Type</mat-label>
+                        <mat-select [(ngModel)]="inputType">
+                            <mat-option value="any">Any</mat-option>
+                            <mat-option value="email">Email</mat-option>
+                            <mat-option value="password">Password</mat-option>
+                        </mat-select>                    
+                    </mat-form-field>                
+                </div>
+                <div class="form-container">
+                    <mat-checkbox [(ngModel)]="isRequired">Is Required</mat-checkbox>            
+                </div>
+                <div class="form-container">
+                          
+                </div>
+            </mat-card-content>
+        </mat-card>
+
         <mat-card *ngIf="state != null && state == 'err'" style="background-color: red; color: white;">
-            {{this.msg}}
+            <mat-card-header>
+                <mat-card-title>OH NO!</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{this.msg}}</p>
+                <p>{{this.action_text}}</p>
+            </mat-card-content>
         </mat-card>
     </mat-card-content>
     <mat-card-actions>
         <div>        
             <button class="form-button" mat-button [disabled]="current_question != null" (click)="addQuestion(textForm)">Set Question</button>            
-            <button class="form-button" mat-button [disabled]="current_question == null" (click)="sendValue()">Add To Survey</button>
+            <button class="form-button" mat-button [disabled]="current_question == null" (click)="preview()">Preview</button>
+            <button class="form-button" mat-button [disabled]="current_question == null" (click)="sendValue(textForm)">Add To Survey</button>            
         </div>
         <!-- <div>
             <button mat-button (click)="sendValue()">Add To Survey</button>
         </div> -->
         <div>
-            <button class="form-button" mat-button [disabled]="current_question == null" (click)="preview()">Preview</button>
+           
             <button class="form-button" mat-button [disabled]="current_question == null" (click)="clearForm(textForm)">Clear Form</button>
         </div>
         <div>

@@ -19,6 +19,7 @@ import {MatInputModule} from '@angular/material/input'
 import {MatListModule} from '@angular/material/list';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
@@ -53,7 +54,8 @@ const matModules = [
   FormsModule,
   MatListModule,
   MatStepperModule,
-  MatSelectModule
+  MatSelectModule,
+  MatCheckboxModule
 ]
 
 @NgModule({
