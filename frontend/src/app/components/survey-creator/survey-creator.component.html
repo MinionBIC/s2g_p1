@@ -1,4 +1,4 @@
-<!-- Editor -->
+<!-- old
 <div>
     <mat-stepper orientation="vertical" style="width: 100%;" selectedIndex="{{currIdx}}">
         <mat-step>
@@ -27,8 +27,7 @@
                     <mat-form-field appearance="fill" floatLabel="always">
                         <mat-label>Enter Survey Title</mat-label>
                         <input matInput placeholder="Survey Title" ngModel name="surveyTitle">
-                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                        <mat-hint>Hint</mat-hint> -->
+                       
                     </mat-form-field>
                 </div>
             </form>
@@ -45,8 +44,7 @@
                     <mat-form-field appearance="fill" floatLabel="always">
                         <mat-label>Enter Survey Title</mat-label>
                         <input matInput placeholder="Survey Title" ngModel name="surveyTitle">
-                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                        <mat-hint>Hint</mat-hint> -->
+                      
                     </mat-form-field>
                 </div>
             </form>
@@ -68,9 +66,126 @@
     </mat-stepper>
 </div>
 
-<!-- View -->
 <div>
 
 </div>
 
+ -->
 
+<div class="container">
+    <div class="editor_container">
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Question Type</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>                    
+                    <div class="form-container">
+                        <mat-form-field appearance="fill" floatLabel="always">
+                            <mat-label>Enter Survey Category</mat-label>
+                            <mat-select [(ngModel)]="surveyCategory">
+                                <mat-option value="text">Text</mat-option>
+                                <mat-option value="check">Checkbox</mat-option>
+                                <mat-option value="opt">Options</mat-option>
+                            </mat-select>
+                        </mat-form-field>                                        
+                    </div>
+                </mat-card-content>
+                <!-- <mat-card-actions>
+            <button mat-button (click)="setSurveyType()">Select Survey Type</button>
+        </mat-card-actions> -->
+            </mat-card>
+        </div>
+        <div [ngSwitch]="surveyCategory">
+            <!-- <mat-card *ngSwitchCase="'default'">
+                <p>Hello Default</p>
+            </mat-card> -->
+            <mat-card *ngSwitchCase="'text'">
+                <form #textForm="ngForm">
+                    <div class="form-container">
+                        <mat-form-field appearance="fill" floatLabel="always">
+                            <mat-label>Enter Survey Text</mat-label>
+                            <input matInput ngModel name="textValue">
+                        </mat-form-field>
+                        <div>
+                            <button mat-button (click)="buildElementFromText(textForm)">Add Question to Survey</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-card>
+            <mat-card *ngSwitchCase="'check'">
+                <form #checkForm="ngForm">
+                    <div class="form-container">
+                        <mat-form-field appearance="fill" floatLabel="always">
+                            <mat-label>Check Question Text</mat-label>
+                            <input matInput ngModel name="textValue">
+                        </mat-form-field>
+                        <div>
+                            <button mat-button (click)="buildElementFromCheck(checkForm)">Add Question to Survey</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-card>
+            <mat-card *ngSwitchCase="'opt'">
+                <form #optForm="ngForm">
+                    <div class="form-container">
+                        <mat-form-field appearance="fill" floatLabel="always">
+                            <mat-label>Question Text</mat-label>
+                            <input matInput ngModel name="questValue">
+                        </mat-form-field>                                      
+                        <div>
+                            <button mat-button (click)="buildElementFromOpt(optForm)">Add Question to Survey</button>
+                        </div>
+                    </div>
+                    <form>
+                        <mat-form-field appearance="fill" floatLabel="always">
+                            <mat-label>Option Text</mat-label>
+                            <input matInput ngModel name="textValue">
+                          
+                        </mat-form-field>     
+                        <div>
+                            <button mat-button (click)="addOption(textValue)">Add Option to Question</button>
+                        </div>   
+                    </form>
+                </form>
+              
+            </mat-card>
+        </div>
+    </div>
+    <div class="view_container">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <p>List</p>
+                </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <mat-list *ngFor="let item of curr_elements">
+                    <mat-list-item>
+                        <p>
+                            {{item.name}}
+                        </p>
+                        <br>
+                        <p>
+                            {{item.title}}
+                        </p>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+
+
+    </div>
+    <div class="menu_container"> 
+        <mat-card>
+            <mat-card-actions>
+                <div>
+
+                    <button mat-button (click)="getJson()">Send Json</button>
+                    
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

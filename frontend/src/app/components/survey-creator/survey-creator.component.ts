@@ -14,17 +14,21 @@ export class SurveyCreatorComponent implements OnInit {
 
   @Output() getSurveyEvent = new EventEmitter<string>();
 
-  currIdx;
-
-  cat_mode;
+  surveyCategory = 'opt';
 
   constructor() { }
+
+  curr_elements = [];
+
+  curr_opt = [];
+
+  textValue;
 
   ngOnInit(): void {
     this.setExample()
   }
 
-  setExample() {
+  setExample() {  
     this.surveyJson = {
       elements: [{
         name: "FirstName",
@@ -34,45 +38,49 @@ export class SurveyCreatorComponent implements OnInit {
         name: "LastName",
         title: "Enter your last name:",
         type: "text"
-      }]
+      }, {
+        name: "gender",
+        title: "Choose your gender",
+        type: "dropdown",
+        choises: ["male", "alpha", "beta", "apache helicopter", "brot"]
+      }
+    ]
     };   
   }
 
-  getJson(value: string) {
-    this.getSurveyEvent.emit(value);
+  getJson() {    
+    this.setSurveyJson();
+    this.getSurveyEvent.emit(this.surveyJson);
   }
 
-  goToFirst(){
-    this.currIdx = 0;
+  buildElementFromText(textForm: NgForm) {
+    let curr_element = {
+      name: 'dummy_' + this.curr_elements.length.toString(),
+      title: textForm.value.textValue,
+      type: "text"
+    };
+
+    this.curr_elements.push(curr_element);
   }
 
-  getText(categoryForm: NgForm, titleForm: NgForm){
-    let cat = categoryForm.value.surveyCategory;
-    let tit = titleForm.value.surveyTitle;
+  buildElementFromCheck(checkForm: NgForm) {
 
-    let elements = {
-      elements: [{
-        name: "test",
-        title: tit,
-        type: cat
-      }]
+  }
+
+  buildElementFromOpt(optForm: NgForm) {
+
+  }
+
+  addOption(option: string){
+    this.curr_opt.push(option);
+    console.log(option);
+    console.log(this.curr_opt);
+  }
+
+  setSurveyJson(){
+    this.surveyJson = {
+      elements: this.curr_elements
     }
-
-    this.surveyJson = elements;    
   }
 
-  changeCategory(value){
-      switch(value.selectedStep.label){
-        case 'text': {
-          this.cat_mode = 'text';
-          break;
-        }
-        case 'option': {
-          this.cat_mode = 'option';
-          break;
-        }
-      }
-      
-      
-  }
 }
