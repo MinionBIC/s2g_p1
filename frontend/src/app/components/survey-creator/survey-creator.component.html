@@ -61,10 +61,10 @@
             <app-date-question (getValueEvent)="getDateQuestion($event)"></app-date-question>
         </div>
         <div *ngIf="surveyCategory == 'rank'">
-            <app-ranking-question></app-ranking-question>
+            <app-ranking-question (getValueEvent)="getRankingQuestion($event)"></app-ranking-question>
         </div>
         <div *ngIf="surveyCategory == 'rate'">
-            <app-rating-question></app-rating-question>
+            <app-rating-question (getValueEvent)="getRatingQuestion($event)"></app-rating-question>
         </div>
 
     </mat-card-content>

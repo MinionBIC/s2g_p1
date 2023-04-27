@@ -1,1 +1,97 @@
-<p>ranking-question works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Ranking Question Form</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form #optForm="ngForm">
+            <div class="form-container">
+                <mat-form-field appearance="fill" floatLabel="always">
+                    <mat-label>Enter Survey Text</mat-label>
+                    <input matInput ngModel name="textValue">
+                </mat-form-field>
+            </div>
+
+        </form>
+
+            <div class="form-container">
+                <p mat-label>Set Options</p>
+                <mat-form-field appearance="fill" floatLabel="always">
+                    <mat-label>Option Text</mat-label>
+                    <input matInput ngModel name="textValue" [(ngModel)]="currOptText">                                        
+                </mat-form-field>
+
+                <div>
+                    <button mat-button (click)="addOption(currOptText)">Add Option</button>
+                    <button mat-button [disabled]="currOptions.length == 0" (click)="clearOption()">Clear Option</button>
+                </div>
+            </div>
+
+            <mat-card >
+
+                <p mat-label>Current Options</p>
+
+                <div class="form-container" style="max-height: 125px; overflow-y: auto;">
+                    
+                    <mat-list *ngFor="let item of currOptions">
+                        <mat-list-item>{{item}}</mat-list-item>
+                    </mat-list>
+                </div>
+            </mat-card>
+        
+
+        <mat-card *ngIf="state != null && state == 'set'" style="background-color: green; color: white;">
+            <mat-card-header>
+                <mat-card-title>HURRAY!!</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{this.msg}}</p>
+                {{this.action_text}}
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card *ngIf="state != null && state == 'set'">
+            <mat-card-header>
+                <mat-card-title>
+                    Optional Settings
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+               
+                <div class="form-container">
+                    <mat-checkbox [(ngModel)]="isRequired">Is Required</mat-checkbox>
+                </div>
+                <div class="form-container">
+
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card *ngIf="state != null && state == 'err'" style="background-color: red; color: white;">
+            <mat-card-header>
+                <mat-card-title>OH NO!</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{this.msg}}</p>
+                <p>{{this.action_text}}</p>
+            </mat-card-content>
+        </mat-card>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <div>
+            <button mat-button [disabled]="current_question != null" (click)="setQuestion(optForm)">Set Question</button>
+            <button mat-button [disabled]="current_question == null" (click)="preview()">Preview</button>
+            <button mat-button [disabled]="current_question == null" (click)="sendValue(optForm)">Add To Survey</button>
+        </div>
+        <div>
+            <button mat-button (click)="clearValues(optForm)">Clear Form</button>
+        </div>
+    </mat-card-actions>
+
+    <mat-card-footer>
+        <mat-card *ngIf="surveyJson != null">
+            <app-survey-viewer [surveyJson]="surveyJson"></app-survey-viewer>
+        </mat-card>
+    </mat-card-footer>
+</mat-card>
