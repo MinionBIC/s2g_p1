@@ -1,1 +1,115 @@
-<p>numeric-question works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Numberic Question Form</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form #numForm="ngForm">
+            <div class="form-container">
+                <mat-form-field appearance="fill" floatLabel="always">
+                    <mat-label>Enter Question Text</mat-label>
+                    <input matInput ngModel name="textValue">
+                </mat-form-field>                
+            </div>
+        </form>
+        <mat-card *ngIf="state != null && state == 'set'" style="background-color: green; color: white;">
+            <mat-card-header>
+                <mat-card-title>HURRAY!!</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{this.msg}}</p>
+                {{this.action_text}}
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card *ngIf="state != null && state == 'set'">
+            <mat-card-header>
+                <mat-card-title>
+                    Optional Settings
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="form-container">
+                    <mat-checkbox [(ngModel)]="isRequired">Is Required</mat-checkbox>            
+                </div>
+
+                <div class="form-container">
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Input Type</mat-label>
+                        <mat-select [(ngModel)]="inputType">
+                            <mat-option value="number">Numeric</mat-option>
+                            <mat-option value="range">Range</mat-option>
+                            <mat-option value="tel">phone number</mat-option>
+                        </mat-select>                  
+                    </mat-form-field>                
+                </div>
+                
+                <div class="form-container" *ngIf="inputType == 'number'">
+                        <mat-form-field appearance="fill" floatLabel="always">
+                            <mat-label>Enter Default Value</mat-label>
+                            <input matInput [(ngModel)]="num_defValue" name="defaultValue">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" floatLabel="always">
+                            <mat-label>Enter Min Value</mat-label>
+                            <input matInput [(ngModel)]="num_minValue" name="minValue">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" floatLabel="always">
+                            <mat-label>Enter Max Value</mat-label>
+                            <input matInput [(ngModel)]="num_maxValue" name="maxValue">
+                        </mat-form-field>
+                </div>
+
+                <div class="form-container" *ngIf="inputType == 'range'">
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Enter Default Value</mat-label>
+                        <input matInput [(ngModel)]="range_defValue">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Enter Min Value</mat-label>
+                        <input matInput [(ngModel)]="range_minValue">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Enter Max Value</mat-label>
+                        <input matInput [(ngModel)]="range_maxValue">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Enter Step Value</mat-label>
+                        <input matInput [(ngModel)]="range_stepValue">
+                    </mat-form-field>
+                </div>
+
+                <div class="form-container" *ngIf="inputType == 'tel'">
+                    <mat-checkbox [(ngModel)]="tel_useValidate">Use Validator</mat-checkbox>            
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card *ngIf="state != null && state == 'err'" style="background-color: red; color: white;">
+            <mat-card-header>
+                <mat-card-title>OH NO!</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{this.msg}}</p>
+                <p>{{this.action_text}}</p>
+            </mat-card-content>
+        </mat-card>
+
+    </mat-card-content>
+
+    <mat-card-actions>
+        <div>
+            <button mat-button [disabled]="current_question != null" (click)="addQuestion(numForm)">Set Question</button>
+            <button mat-button [disabled]="current_question == null" (click)="preview()">Preview</button>
+            <button mat-button [disabled]="current_question == null" (click)="sendValue(numForm)">Add To Survey</button>
+        </div>
+        <div>
+            <button mat-button (click)="clearValues(numForm)">Clear Form</button>
+        </div>
+    </mat-card-actions>
+
+    <mat-card-footer>
+        <mat-card *ngIf="surveyJson != null">
+            <app-survey-viewer [surveyJson]="surveyJson"></app-survey-viewer>
+        </mat-card>
+    </mat-card-footer>
+</mat-card>

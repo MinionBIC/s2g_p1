@@ -7,9 +7,21 @@
             <mat-form-field appearance="fill" floatLabel="always">
                 <mat-label>Enter Survey Category</mat-label>
                 <mat-select [(ngModel)]="surveyCategory">
-                    <mat-option value="text">Text</mat-option>
-                    <mat-option value="check">Checkbox</mat-option>
-                    <mat-option value="opt">Options</mat-option>
+                    <mat-optgroup [label]="'Simple Types'">
+                        <mat-option value="text">Text</mat-option>
+                        <mat-option value="check">Checkbox</mat-option>
+                        <mat-option value="opt">Options</mat-option>
+                    </mat-optgroup>
+                    <mat-optgroup [label]="'Additional Types'">
+                        <mat-option value="num">Numeric</mat-option>        
+                        <mat-option value="bool">bool</mat-option>                 
+                    </mat-optgroup>
+                    <mat-optgroup [label]="'Experimental Types'">
+                        <mat-option value="col">Color</mat-option>
+                        <mat-option value="date">Date</mat-option>
+                        <mat-option value="rank">Ranking</mat-option>
+                        <mat-option value="rate">Rating</mat-option>
+                    </mat-optgroup>
                 </mat-select>
             </mat-form-field>                                        
         </div>
@@ -19,8 +31,10 @@
 </mat-card-actions> -->
 </mat-card>
 
-<mat-card style="min-height: 200px; overflow-y: auto;">    
+<mat-card style="min-height: 400px; overflow-y: auto;">    
     <mat-card-content>
+
+        <div *ngIf="surveyCategory == null"></div>
 
         <div *ngIf="surveyCategory == 'text'">
             <app-text-question (getValueEvent)="getTextQuestion($event)"></app-text-question>
@@ -34,6 +48,24 @@
             <app-dropdown-question (getValueEvent)="getDropdownQuestion($event)"></app-dropdown-question>
         </div>
 
+        <div *ngIf="surveyCategory == 'num'">
+            <app-numeric-question (getValueEvent)="getNumericQuestion($event)"></app-numeric-question>
+        </div>
+        <div *ngIf="surveyCategory == 'bool'">
+            <app-bool-question></app-bool-question>
+        </div>
+        <div *ngIf="surveyCategory == 'col'">
+            <app-color-question></app-color-question>
+        </div>
+        <div *ngIf="surveyCategory == 'date'">
+            <app-date-question></app-date-question>
+        </div>
+        <div *ngIf="surveyCategory == 'rank'">
+            <app-ranking-question></app-ranking-question>
+        </div>
+        <div *ngIf="surveyCategory == 'rate'">
+            <app-rating-question></app-rating-question>
+        </div>
 
     </mat-card-content>
     

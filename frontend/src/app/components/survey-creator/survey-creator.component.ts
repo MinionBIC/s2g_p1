@@ -16,9 +16,9 @@ export class SurveyCreatorComponent implements OnInit {
 
   @Output() getSurveyEvent = new EventEmitter<string>();
 
-  surveyCategory = 'check';
+  surveyCategory = 'num';
 
-  // constructor() { }
+   constructor() { }
 
   
 
@@ -79,6 +79,14 @@ export class SurveyCreatorComponent implements OnInit {
   }
 
   getCheckQuestion(value){
+    if(value.name == 'test') {
+      value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
+    }; 
+
+    this.curr_elements.push(value)
+  }
+
+  getNumericQuestion(value){
     if(value.name == 'test') {
       value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
     }; 
