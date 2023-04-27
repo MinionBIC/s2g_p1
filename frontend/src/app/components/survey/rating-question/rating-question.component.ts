@@ -19,7 +19,7 @@ export class RatingQuestionComponent implements OnInit {
   currOptions = [];
 
   isRequired;
-  styleType;
+  styleType = 'default';
 
   minRateText;
   maxRateText;
@@ -55,14 +55,20 @@ export class RatingQuestionComponent implements OnInit {
     this.current_question = {
       "name":"test",
       "type":"rating",
-      "title":form.value.textValue,
-      
+      "title":form.value.textValue      
     };    
+
+    if(this.styleType != "default") {
+      this.current_question.displayMode = this.styleType;
+    }
 
     this.state = 'set';
   }
 
   preview() {
+
+    this.surveyJson = null;
+
     this.surveyJson = {      
       elements: [this.current_question]
     }
@@ -72,9 +78,9 @@ export class RatingQuestionComponent implements OnInit {
 
     this.current_question.isRequired = this.isRequired;
 
-    if(this.styleType != "default") {
-      this.current_question.displayMode = this.styleType;
-    }
+    // if(this.styleType != "default") {
+    //   this.current_question.displayMode = this.styleType;
+    // }
 
     if(this.minRateText != null) {
       this.current_question.minRateDescription = this.minRateText;

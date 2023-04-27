@@ -10,8 +10,20 @@
                     <mat-label>Enter Question Text</mat-label>
                     <input matInput ngModel name="textValue">
                 </mat-form-field>                
-            </div>
+            </div>           
         </form>
+
+        <div class="form-container">
+            <mat-form-field appearance="fill" floatLabel="always">
+                <mat-label>Style Type</mat-label>
+                <mat-select [(ngModel)]="styleType">
+                    <mat-option value="default">Default</mat-option>
+                    <mat-option value="buttons">Buttons</mat-option>
+                    <mat-option value="dropdown">Dropdown</mat-option>
+                </mat-select>                  
+            </mat-form-field>                
+        </div>
+
         <mat-card *ngIf="state != null && state == 'set'" style="background-color: green; color: white;">
             <mat-card-header>
                 <mat-card-title>HURRAY!!</mat-card-title>
@@ -47,16 +59,7 @@
                     </mat-form-field>
                 </div>
 
-                <div class="form-container">
-                    <mat-form-field appearance="fill" floatLabel="always">
-                        <mat-label>Style Type</mat-label>
-                        <mat-select [(ngModel)]="styleType">
-                            <mat-option value="default">Default</mat-option>
-                            <mat-option value="button">Buttons</mat-option>
-                            <mat-option value="dropdown">Dropdown</mat-option>
-                        </mat-select>                  
-                    </mat-form-field>                
-                </div>
+                
                 
                 
             </mat-card-content>
@@ -76,7 +79,7 @@
 
     <mat-card-actions>
         <div>
-            <button mat-button [disabled]="current_question != null" (click)="setQuestion(numForm)">Set Question</button>
+            <button mat-button (click)="setQuestion(numForm)">Set Question</button>
             <button mat-button [disabled]="current_question == null" (click)="preview()">Preview</button>
             <button mat-button [disabled]="current_question == null" (click)="sendValue(numForm)">Add To Survey</button>
         </div>
