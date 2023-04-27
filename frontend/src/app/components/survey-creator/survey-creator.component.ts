@@ -16,7 +16,7 @@ export class SurveyCreatorComponent implements OnInit {
 
   @Output() getSurveyEvent = new EventEmitter<string>();
 
-  surveyCategory = 'col';
+  surveyCategory = 'date';
 
    constructor() { }
 
@@ -110,4 +110,11 @@ export class SurveyCreatorComponent implements OnInit {
     this.curr_elements.push(value)
   }
 
+  getDateQuestion(value){
+    if(value.name == 'test') {
+      value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
+    }; 
+
+    this.curr_elements.push(value)
+  }
 }

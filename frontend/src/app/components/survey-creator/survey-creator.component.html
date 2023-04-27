@@ -58,7 +58,7 @@
             <app-color-question (getValueEvent)="getColorQuestion($event)"></app-color-question>
         </div>
         <div *ngIf="surveyCategory == 'date'">
-            <app-date-question></app-date-question>
+            <app-date-question (getValueEvent)="getDateQuestion($event)"></app-date-question>
         </div>
         <div *ngIf="surveyCategory == 'rank'">
             <app-ranking-question></app-ranking-question>
