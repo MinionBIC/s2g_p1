@@ -16,7 +16,7 @@ export class SurveyCreatorComponent implements OnInit {
 
   @Output() getSurveyEvent = new EventEmitter<string>();
 
-  surveyCategory = 'bool';
+  surveyCategory = 'col';
 
    constructor() { }
 
@@ -95,6 +95,14 @@ export class SurveyCreatorComponent implements OnInit {
   }
 
   getBooleanQuestion(value){
+    if(value.name == 'test') {
+      value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
+    }; 
+
+    this.curr_elements.push(value)
+  }
+
+  getColorQuestion(value){
     if(value.name == 'test') {
       value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
     }; 
