@@ -52,7 +52,7 @@
             <app-numeric-question (getValueEvent)="getNumericQuestion($event)"></app-numeric-question>
         </div>
         <div *ngIf="surveyCategory == 'bool'">
-            <app-bool-question></app-bool-question>
+            <app-bool-question (getValueEvent)="getBooleanQuestion($event)"></app-bool-question>
         </div>
         <div *ngIf="surveyCategory == 'col'">
             <app-color-question></app-color-question>
