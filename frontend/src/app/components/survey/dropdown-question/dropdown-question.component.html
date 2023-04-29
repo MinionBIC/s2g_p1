@@ -89,10 +89,10 @@
         <div>
             <!-- <button mat-button [disabled]="current_question != null" (click)="setQuestion(optForm)">Set Question</button> -->
             
-            <button mat-button [disabled]="current_question == null" (click)="sendValue(optForm)">Save Current Element</button>
+            <button mat-button (click)="sendValue(optForm)">Save Current Element</button>
         </div>
         <div>
-            <button mat-button [disabled]="current_question == null" (click)="preview(optForm)">Preview</button>
+            <button mat-button (click)="preview(optForm)">Preview</button>
             <button mat-button (click)="clearValues(optForm)">Clear Form</button>
         </div>
     </mat-card-actions>

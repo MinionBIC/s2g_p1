@@ -48,17 +48,26 @@ export class RankingQuestionComponent implements OnInit {
       return;
     }
 
+    this.buildQuestion(form);
+  }
+
+  private buildQuestion(form: NgForm) {
     this.current_question = {
-      "name":"test",
-      "type":"ranking",
-      "title":form.value.textValue,
+      "name": "test",
+      "type": "ranking",
+      "title": form.value.textValue,
       "choices": this.currOptions
-    };    
+    };
+
+    this.current_question.isRequired = this.isRequired;
 
     this.state = 'set';
   }
 
-  preview() {
+  preview(form: NgForm) {
+
+    this.buildQuestion(form);
+
     this.surveyJson = {      
       elements: [this.current_question]
     }
@@ -66,8 +75,8 @@ export class RankingQuestionComponent implements OnInit {
 
   sendValue(form: NgForm){   
 
-    this.current_question.isRequired = this.isRequired;
-
+    this.buildQuestion(form);
+    
     this.getValueEvent.emit(this.current_question)
     this.clearValues(form);
 

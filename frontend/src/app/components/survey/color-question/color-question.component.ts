@@ -56,21 +56,30 @@ export class ColorQuestionComponent implements OnInit {
       return;
     }
 
-    this.current_question = {
-        "name": "test",
-        "type": "text",        
-        "title": form.value.textValue,
-        "inputType": "color"        
-    };   
-    
-
-    this.state = "set";
-    this.msg = "success set question type: " + this.current_question.type ;
-    this.action_text = "now add question to Survey or watch the preview of your question (without optional settings currently)";
+    this.buildQuestion(form);
     
   }
 
-  preview() {
+  private buildQuestion(form: NgForm) {
+    this.current_question = {
+      "name": "test",
+      "type": "text",
+      "title": form.value.textValue,
+      "inputType": "color"
+    };
+
+    this.current_question.isRequired = this.isRequired;
+
+
+    this.state = "set";
+    this.msg = "success set question type: " + this.current_question.type;
+    this.action_text = "now add question to Survey or watch the preview of your question (without optional settings currently)";
+  }
+
+  preview(form: NgForm) {
+
+    this.buildQuestion(form);
+
     this.surveyJson = {      
       elements: [this.current_question]
     }
@@ -78,8 +87,7 @@ export class ColorQuestionComponent implements OnInit {
 
   sendValue(form: NgForm){   
 
-    this.current_question.isRequired = this.isRequired;   
-    //this.current_question.defaultValue = this.default_color; 
+    this.buildQuestion(form);
 
     this.getValueEvent.emit(this.current_question)
     this.clearValues(form);

@@ -29,6 +29,7 @@
 
             <mat-card >
 
+                <mat-card-content>
                 <p mat-label>Current Options</p>
 
                 <div class="form-container" style="max-height: 125px; overflow-y: auto;">
@@ -37,6 +38,7 @@
                         <mat-list-item>{{item}}</mat-list-item>
                     </mat-list>
                 </div>
+                </mat-card-content>
             </mat-card>
         
 
@@ -50,7 +52,7 @@
             </mat-card-content>
         </mat-card>
 
-        <mat-card *ngIf="state != null && state == 'set'">
+        <mat-card>
             <mat-card-header>
                 <mat-card-title>
                     Optional Settings
@@ -80,11 +82,12 @@
 
     <mat-card-actions>
         <div>
-            <button mat-button [disabled]="current_question != null" (click)="setQuestion(optForm)">Set Question</button>
-            <button mat-button [disabled]="current_question == null" (click)="preview()">Preview</button>
-            <button mat-button [disabled]="current_question == null" (click)="sendValue(optForm)">Add To Survey</button>
+            <!-- <button mat-button [disabled]="current_question != null" (click)="setQuestion(optForm)">Set Question</button> -->
+            <button mat-button (click)="sendValue(optForm)">Save Current Element</button>
         </div>
         <div>
+            <button mat-button (click)="preview(optForm)">Preview</button>
+
             <button mat-button (click)="clearValues(optForm)">Clear Form</button>
         </div>
     </mat-card-actions>

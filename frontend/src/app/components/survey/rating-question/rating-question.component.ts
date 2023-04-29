@@ -52,22 +52,39 @@ export class RatingQuestionComponent implements OnInit {
       return;
     }
 
-    this.current_question = {
-      "name":"test",
-      "type":"rating",
-      "title":form.value.textValue      
-    };    
+    this.buildQuestion(form);
+  }
 
-    if(this.styleType != "default") {
+  private buildQuestion(form: NgForm) {
+    this.current_question = {
+      "name": "test",
+      "type": "rating",
+      "title": form.value.textValue
+    };
+
+    if (this.styleType != "default") {
       this.current_question.displayMode = this.styleType;
+    }
+
+    this.current_question.isRequired = this.isRequired;
+
+    // if(this.styleType != "default") {
+    //   this.current_question.displayMode = this.styleType;
+    // }
+    if (this.minRateText != null) {
+      this.current_question.minRateDescription = this.minRateText;
+    }
+
+    if (this.maxRateText != null) {
+      this.current_question.maxRateDescription = this.maxRateText;
     }
 
     this.state = 'set';
   }
 
-  preview() {
+  preview(form: NgForm) {
 
-    this.surveyJson = null;
+    this.buildQuestion(form);
 
     this.surveyJson = {      
       elements: [this.current_question]
@@ -76,19 +93,7 @@ export class RatingQuestionComponent implements OnInit {
 
   sendValue(form: NgForm){   
 
-    this.current_question.isRequired = this.isRequired;
-
-    // if(this.styleType != "default") {
-    //   this.current_question.displayMode = this.styleType;
-    // }
-
-    if(this.minRateText != null) {
-      this.current_question.minRateDescription = this.minRateText;
-    }
-
-    if(this.maxRateText != null){
-      this.current_question.maxRateDescription = this.maxRateText;
-    }
+    this.buildQuestion(form);
 
     this.getValueEvent.emit(this.current_question)
     this.clearValues(form);
