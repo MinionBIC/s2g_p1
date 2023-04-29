@@ -73,19 +73,32 @@ export class CheckQuestionComponent implements OnInit {
       return;
     }
 
-    this.current_question = {
-      "name":"test",
-      "type":"checkbox",
-      "title":form.value.textValue,
-      "choices": this.currOptions
-    };    
+    this.buildQuestion(form);
+
 
     this.state = 'set';
     this.msg = "question set";
     this.action_text = "now add question to Survey or watch the preview of your question (without optional settings currently)";
   }
 
-  preview() {
+  private buildQuestion(form: NgForm) {
+    this.current_question = {
+      "name": "test",
+      "type": "checkbox",
+      "title": form.value.textValue,
+      "choices": this.currOptions
+    };
+
+    this.current_question.isRequired = this.isRequired;
+
+    this.current_question.showNoneItem = this.noneItem;
+    this.current_question.showOtherItem = this.otherItem;
+  }
+
+  preview(form) {
+
+    this.buildQuestion(form);
+    
     this.surveyJson = {      
       elements: [this.current_question]
     }
@@ -93,10 +106,7 @@ export class CheckQuestionComponent implements OnInit {
 
   sendValue(form: NgForm){   
 
-    this.current_question.isRequired = this.isRequired;
-
-    this.current_question.showNoneItem = this.noneItem;
-    this.current_question.showOtherItem = this.otherItem;
+    this.buildQuestion(form);
 
     this.getValueEvent.emit(this.current_question)
     this.clearValues(form);

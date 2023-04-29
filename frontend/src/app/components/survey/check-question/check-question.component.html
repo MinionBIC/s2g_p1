@@ -31,14 +31,17 @@
 
             <mat-card >
 
-                <p mat-label>Current Options</p>
+                <mat-card-content>                
+                    <p mat-label>Current Options</p>
 
-                <div class="form-container" style="max-height: 125px; overflow-y: auto;">
+                    <div class="form-container" style="max-height: 125px; overflow-y: auto;">
                     
-                    <mat-list *ngFor="let item of currOptions">
-                        <mat-list-item>{{item}}</mat-list-item>
-                    </mat-list>
-                </div>
+                        <mat-list *ngFor="let item of currOptions">
+                            <mat-list-item>{{item}}</mat-list-item>
+                        </mat-list>
+                    </div>
+                </mat-card-content>
+
             </mat-card>
         
 
@@ -52,7 +55,7 @@
             </mat-card-content>
         </mat-card>
 
-        <mat-card *ngIf="state != null && state == 'set'">
+        <mat-card>
             <mat-card-header>
                 <mat-card-title>
                     Optional Settings
@@ -67,10 +70,7 @@
                 </div>
                 <div class="form-container">
                     <mat-checkbox [(ngModel)]="isRequired">Is Required</mat-checkbox>
-                </div>
-                <div class="form-container">
-
-                </div>
+                </div>                
             </mat-card-content>
         </mat-card>
 
@@ -87,12 +87,11 @@
     </mat-card-content>
 
     <mat-card-actions>
-        <div>
-            <button mat-button [disabled]="current_question != null" (click)="setQuestion(checkForm)">Set Question</button>
-            <button mat-button [disabled]="current_question == null" (click)="preview()">Preview</button>
-            <button mat-button [disabled]="current_question == null" (click)="sendValue(checkForm)">Add To Survey</button>
+        <div>            
+            <button mat-button (click)="sendValue(checkForm)">Save Current Element</button>
         </div>
         <div>
+            <button mat-button (click)="preview(checkForm)">Preview</button>
             <button mat-button (click)="clearValues(checkForm)">Clear Form</button>
         </div>
     </mat-card-actions>

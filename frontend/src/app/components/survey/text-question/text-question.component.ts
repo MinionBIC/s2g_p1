@@ -45,27 +45,31 @@ export class TextQuestionComponent implements OnInit {
     form.resetForm();
   }
 
-  addQuestion(form: NgForm){    
+  // old method, replaced by build question
+  // addQuestion(form: NgForm){    
 
-    console.log(form.value.textValue)
+  //   console.log(form.value.textValue)
 
-    //hacky lol
-    if(!(this.checkInput(form.value.textValue))) {
+  //   //hacky lol
+  //   if(!(this.checkInput(form.value.textValue))) {
 
-      this.state = "err";
-      this.msg = "err set: txt null";
-      return;
-    }
+  //     this.state = "err";
+  //     this.msg = "err set: txt null";
+  //     return;
+  //   }
+
+  //   this.buildQuestion(form); 
+
+  //   this.state = "set";
+  //   this.msg = "success set question type: " + this.current_question.type ;
+  //   this.action_text = "now add question to Survey or watch the preview of your question (without optional settings currently)";
+    
+  // }  
+
+  preview(form: NgForm) {
 
     this.buildQuestion(form); 
 
-    this.state = "set";
-    this.msg = "success set question type: " + this.current_question.type ;
-    this.action_text = "now add question to Survey or watch the preview of your question (without optional settings currently)";
-    
-  }  
-
-  preview() {
     this.surveyJson = {      
       elements: [this.current_question]
     }
@@ -97,6 +101,10 @@ export class TextQuestionComponent implements OnInit {
 
     this.current_question.inputType = this.inputType;
     this.current_question.isRequired = this.isRequired;
+
+    this.state = "set";
+    this.msg = "success set question type: " + this.current_question.type ;
+    this.action_text = "now add question to Survey or watch the preview of your question (without optional settings currently)";
   }
 
 
