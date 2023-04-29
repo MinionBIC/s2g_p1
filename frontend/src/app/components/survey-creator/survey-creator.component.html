@@ -31,7 +31,7 @@
 </mat-card-actions> -->
 </mat-card>
 
-<mat-card style="min-height: 400px; overflow-y: auto;">    
+<mat-card style="min-height: 300px; overflow-y: auto;">    
     <mat-card-content>
 
         <div *ngIf="surveyCategory == null"></div>
@@ -70,19 +70,10 @@
     </mat-card-content>
     
 </mat-card>
-
+                           
 <mat-card>
-    <mat-card-header>
-        <mat-card-title>
-            Current Elements
-        </mat-card-title>
-    </mat-card-header>
     <mat-card-content>
-        <mat-list *ngFor="let item of curr_elements">              
-            <p>Name: {{item.name}}</p> 
-            <p>Required: {{item.isRequired}}</p>  
-            <p *ngIf="item.type == 'text'">input type: {{item.inputType}}</p>   
-        </mat-list>
+        <app-survey-organizer [curr_elements]="this.curr_elements"></app-survey-organizer>
     </mat-card-content>
 </mat-card>
 

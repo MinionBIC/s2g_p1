@@ -1,0 +1,27 @@
+<!-- <mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Current Elements
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list *ngFor="let item of curr_elements">              
+            <p>Name: {{item.name}}</p> 
+            <p>Required: {{item.isRequired}}</p>  
+            <p *ngIf="item.type == 'text'">input type: {{item.inputType}}</p>   
+        </mat-list>
+    </mat-card-content>
+</mat-card> -->
+
+<mat-card>
+    <mat-card-content>
+        <mat-card-content>
+            <mat-selection-list >
+                <mat-list-option *ngFor="let item of curr_elements">
+                    <h3 matListItemTitle>{{item.title}}</h3>
+                    <p matListItemLine>{{item.type}}: {{item.inputType}}</p>
+                </mat-list-option>
+            </mat-selection-list>
+        </mat-card-content>
+    </mat-card-content>
+</mat-card>

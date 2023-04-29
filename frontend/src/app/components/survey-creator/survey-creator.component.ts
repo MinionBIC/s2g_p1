@@ -12,13 +12,14 @@ export class SurveyCreatorComponent implements OnInit {
   surveyJson;
   curr_elements = [];
 
-  
+  surveyCategory = 'text';
 
   @Output() getSurveyEvent = new EventEmitter<string>();
 
-  surveyCategory = 'rate';
+  @Output() addElementToSurveyEvent = new EventEmitter<string>();
+  
 
-   constructor() { }
+  constructor() { }
 
   
 
@@ -67,7 +68,9 @@ export class SurveyCreatorComponent implements OnInit {
       value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
     };    
 
-    this.curr_elements.push(value)
+    //this.curr_elements.push(value)
+
+    this.addElementToSurveyEvent.emit(value);
   }
 
   getDropdownQuestion(value){
@@ -75,7 +78,9 @@ export class SurveyCreatorComponent implements OnInit {
       value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
     }; 
 
-    this.curr_elements.push(value)
+    //this.curr_elements.push(value)
+
+    this.addElementToSurveyEvent.emit(value);
   }
 
   getCheckQuestion(value){
@@ -83,7 +88,9 @@ export class SurveyCreatorComponent implements OnInit {
       value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
     }; 
 
-    this.curr_elements.push(value)
+    //this.curr_elements.push(value)
+
+    this.addElementToSurveyEvent.emit(value);
   }
 
   getNumericQuestion(value){
@@ -91,7 +98,8 @@ export class SurveyCreatorComponent implements OnInit {
       value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
     }; 
 
-    this.curr_elements.push(value)
+    //this.curr_elements.push(value) 
+    this.addElementToSurveyEvent.emit(value);
   }
 
   getBooleanQuestion(value){
@@ -99,7 +107,8 @@ export class SurveyCreatorComponent implements OnInit {
       value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
     }; 
 
-    this.curr_elements.push(value)
+    //this.curr_elements.push(value)
+    this.addElementToSurveyEvent.emit(value);
   }
 
   getColorQuestion(value){
@@ -107,7 +116,8 @@ export class SurveyCreatorComponent implements OnInit {
       value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
     }; 
 
-    this.curr_elements.push(value)
+    //this.curr_elements.push(value)
+    this.addElementToSurveyEvent.emit(value);
   }
 
   getDateQuestion(value){
@@ -115,7 +125,8 @@ export class SurveyCreatorComponent implements OnInit {
       value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
     }; 
 
-    this.curr_elements.push(value)
+    //this.curr_elements.push(value)
+    this.addElementToSurveyEvent.emit(value);
   }
 
   getRankingQuestion(value){
@@ -123,7 +134,8 @@ export class SurveyCreatorComponent implements OnInit {
       value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
     }; 
 
-    this.curr_elements.push(value)
+    //this.curr_elements.push(value)
+    this.addElementToSurveyEvent.emit(value);
   }
 
   getRatingQuestion(value){
@@ -131,6 +143,7 @@ export class SurveyCreatorComponent implements OnInit {
       value.name = value.name + "_" + value.type + "_" + this.curr_elements.length.toString();
     }; 
 
-    this.curr_elements.push(value)
+    //this.curr_elements.push(value)
+    this.addElementToSurveyEvent.emit(value);
   }
 }

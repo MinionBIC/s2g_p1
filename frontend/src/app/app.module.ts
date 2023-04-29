@@ -52,6 +52,7 @@ import { RankingQuestionComponent } from './components/survey/ranking-question/r
 import { RatingQuestionComponent } from './components/survey/rating-question/rating-question.component';
 import { BoolQuestionComponent } from './components/survey/bool-question/bool-question.component';
 import { ColorQuestionComponent } from './components/survey/color-question/color-question.component';
+import { SurveyOrganizerComponent } from './components/survey-organizer/survey-organizer.component';
 
 
 const matModules = [
@@ -101,7 +102,8 @@ const matModules = [
     RankingQuestionComponent,
     RatingQuestionComponent,
     BoolQuestionComponent,
-    ColorQuestionComponent
+    ColorQuestionComponent,
+    SurveyOrganizerComponent
   ],
   imports: [
     BrowserModule,

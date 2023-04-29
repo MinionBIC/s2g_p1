@@ -57,18 +57,13 @@ export class TextQuestionComponent implements OnInit {
       return;
     }
 
-    this.current_question = {
-        "name": "test",
-        "type": "text",        
-        "title": form.value.textValue
-    };   
-    
+    this.buildQuestion(form); 
 
     this.state = "set";
     this.msg = "success set question type: " + this.current_question.type ;
     this.action_text = "now add question to Survey or watch the preview of your question (without optional settings currently)";
     
-  }
+  }  
 
   preview() {
     this.surveyJson = {      
@@ -78,8 +73,7 @@ export class TextQuestionComponent implements OnInit {
 
   sendValue(form: NgForm){   
 
-    this.current_question.inputType = this.inputType;
-    this.current_question.isRequired = this.isRequired;    
+    this.buildQuestion(form);     
 
     this.getValueEvent.emit(this.current_question)
     this.clearValues(form);
@@ -92,6 +86,17 @@ export class TextQuestionComponent implements OnInit {
     if(value == null || value == '') { return false}
     return true
 
+  }
+
+  private buildQuestion(form: NgForm) {
+    this.current_question = {
+      "name": "test",
+      "type": "text",
+      "title": form.value.textValue
+    };
+
+    this.current_question.inputType = this.inputType;
+    this.current_question.isRequired = this.isRequired;
   }
 
 

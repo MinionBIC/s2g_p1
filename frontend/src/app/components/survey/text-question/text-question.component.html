@@ -23,7 +23,7 @@
             </mat-card-content>
         </mat-card>
 
-        <mat-card *ngIf="state != null && state == 'set'">
+        <mat-card>
             <mat-card-header>
                 <mat-card-title>
                     Optional Settings
@@ -61,16 +61,17 @@
     </mat-card-content>
     <mat-card-actions>
         <div>        
-            <button class="form-button" mat-button [disabled]="current_question != null" (click)="addQuestion(textForm)">Set Question</button>            
-            <button class="form-button" mat-button [disabled]="current_question == null" (click)="preview()">Preview</button>
-            <button class="form-button" mat-button [disabled]="current_question == null" (click)="sendValue(textForm)">Add To Survey</button>            
+            <!-- <button class="form-button" mat-button [disabled]="current_question != null" (click)="addQuestion(textForm)">Set Question</button>             -->
+            
+            <button class="form-button" mat-button (click)="sendValue(textForm)">Save Current Element</button>            
         </div>
         <!-- <div>
             <button mat-button (click)="sendValue()">Add To Survey</button>
         </div> -->
         <div>
-           
-            <button class="form-button" mat-button [disabled]="current_question == null" (click)="clearForm(textForm)">Clear Form</button>
+            <button class="form-button" mat-button (click)="clearForm(textForm)">Clear Form</button>
+            <button class="form-button" mat-button (click)="preview()">Preview</button>
+            
         </div>
         <div>
             <!-- <button mat-button [disabled]="current_question == null" (click)="clearForm(textForm)">Clear Form</button> -->

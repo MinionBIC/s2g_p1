@@ -19,16 +19,21 @@ export class SurveyEditorComponent implements OnInit {
   mode = 'editor';
 
   ngOnInit(): void {
-    
+    this.surveyJson = {
+      elements: []
+    }
   }  
 
   goToEditor(){
-    this.mode = 'editor';
-    this.surveyJson = '';
+    this.mode = 'editor';    
   }
 
   goToPreview(){
     this.mode = 'preview';
+  }
+
+  goToCurrentElements(){
+    this.mode = 'current';
   }
   
   getSurvey(value: string){
@@ -36,4 +41,7 @@ export class SurveyEditorComponent implements OnInit {
     this.goToPreview();
   }
 
+  addElementToSurvey(value){
+    	this.surveyJson.elements.push(value);
+  }
 }
