@@ -16,12 +16,21 @@
 <mat-card>
     <mat-card-content>
         <mat-card-content>
-            <mat-selection-list >
+            <!-- <mat-selection-list cdkDropList (cdkDropListDropped)="drop($event)">
                 <mat-list-option *ngFor="let item of curr_elements">
                     <h3 matListItemTitle>{{item.title}}</h3>
                     <p matListItemLine>{{item.type}}: {{item.inputType}}</p>
                 </mat-list-option>
-            </mat-selection-list>
+            </mat-selection-list> -->
+
+            <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of curr_elements" cdkDrag>
+                  <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                  <h3 matListItemTitle>{{item.title}}</h3>
+                  <p matListItemLine>{{item.type}}: {{item.inputType}}</p>
+                </div>
+              </div>
+
         </mat-card-content>
     </mat-card-content>
 </mat-card>

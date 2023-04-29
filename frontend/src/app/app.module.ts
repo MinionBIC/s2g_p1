@@ -21,6 +21,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
@@ -65,7 +66,8 @@ const matModules = [
   MatStepperModule,
   MatSelectModule,
   MatCheckboxModule,
-  MatDatepickerModule
+  MatDatepickerModule,
+  DragDropModule
 ]
 
 @NgModule({
