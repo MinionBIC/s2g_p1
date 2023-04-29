@@ -58,20 +58,36 @@ export class BoolQuestionComponent implements OnInit {
       return;
     }
 
-    this.current_question = {
-        "name": "test",
-        "type": "boolean",        
-        "title": form.value.textValue       
-    };   
-    
-
-    this.state = "set";
-    this.msg = "success set question type: " + this.current_question.type ;
-    this.action_text = "now add question to Survey or watch the preview of your question (without optional settings currently)";
+    this.buildQuestion(form);
     
   }
 
-  preview() {
+  private buildQuestion(form: NgForm) {
+    this.current_question = {
+      "name": "test",
+      "type": "boolean",
+      "title": form.value.textValue
+    };
+
+    this.current_question.isRequired = this.isRequired;
+
+    this.current_question.valueTrue = this.yes_label;
+    this.current_question.valueFalse = this.no_label;
+
+    if (this.style_value == 'radio') {
+      this.current_question.renderAs = 'radio';
+    };
+
+
+    this.state = "set";
+    this.msg = "success set question type: " + this.current_question.type;
+    this.action_text = "now add question to Survey or watch the preview of your question (without optional settings currently)";
+  }
+
+  preview(form: NgForm) {
+
+    this.buildQuestion(form);
+
     this.surveyJson = {      
       elements: [this.current_question]
     }
@@ -79,15 +95,8 @@ export class BoolQuestionComponent implements OnInit {
 
   sendValue(form: NgForm){   
     
-    this.current_question.isRequired = this.isRequired;    
-
-    this.current_question.valueTrue = this.yes_label;
-    this.current_question.valueFalse = this.no_label;
+    this.buildQuestion(form);
     
-    if(this.style_value == 'radio') {
-      this.current_question.renderAs = 'radio'
-    };   
-
     this.getValueEvent.emit(this.current_question)
     this.clearValues(form);
 

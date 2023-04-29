@@ -16,7 +16,7 @@ export class NumericQuestionComponent implements OnInit {
 
   isRequired;
 
-  inputType;
+  inputType = 'number';
 
   num_defValue = 0;
   num_minValue = 0;
@@ -53,33 +53,29 @@ export class NumericQuestionComponent implements OnInit {
     form.resetForm();
   }
 
-  addQuestion(form: NgForm){    
+  // old
+  // addQuestion(form: NgForm){    
 
-    console.log(form.value.textValue)
+  //   console.log(form.value.textValue)
 
-    //hacky lol
-    if(!(this.checkInput(form.value.textValue))) {
+  //   //hacky lol
+  //   if(!(this.checkInput(form.value.textValue))) {
 
-      this.state = "err";
-      this.msg = "err set: txt null";
-      return;
-    }
+  //     this.state = "err";
+  //     this.msg = "err set: txt null";
+  //     return;
+  //   }
 
-    this.current_question = {
-        "name": "test",
-        "type": "text",        
-        "title": form.value.textValue,
-        "inputType": "number"
-    };   
+  //   this.buildQuestion(form);
     
+  // }
 
-    this.state = "set";
-    this.msg = "success set question type: " + this.current_question.type ;
-    this.action_text = "now add question to Survey or watch the preview of your question (without optional settings currently)";
-    
-  }
+  
 
-  preview() {
+  preview(form: NgForm) {
+
+    this.buildQuestion(form);
+
     this.surveyJson = {      
       elements: [this.current_question]
     }
@@ -87,10 +83,33 @@ export class NumericQuestionComponent implements OnInit {
 
   sendValue(form: NgForm){   
     
-    this.current_question.isRequired = this.isRequired;    
+    this.buildQuestion(form);
 
-    switch(this.inputType) {
-      case 'number' : {
+    this.getValueEvent.emit(this.current_question)
+    this.clearValues(form);
+
+    // this.msg = "success set: " + this.current_question.name + ' ' + this.current_question.state;
+    // this.action_text = "add another question"
+  }
+
+  checkInput(value: string) {
+    if(value == null || value == '') { return false}
+    return true
+
+  }
+
+  private buildQuestion(form: NgForm) {
+    this.current_question = {
+      "name": "test",
+      "type": "text",
+      "title": form.value.textValue,
+      "inputType": "number"
+    };
+
+    this.current_question.isRequired = this.isRequired;
+
+    switch (this.inputType) {
+      case 'number': {
         this.current_question.defaultValue = this.num_defValue;
         this.current_question.min = this.num_minValue;
         this.current_question.max = this.num_maxValue;
@@ -107,28 +126,21 @@ export class NumericQuestionComponent implements OnInit {
       case 'tel': {
         this.current_question.inputType = 'tel';
 
-        if(this.tel_useValidate) {          
-            this.current_question.validators =  [{
-              "type": "regex",
-              "regex": "\\+[0-9]{1} \\([0-9]{3}\\) [0-9]{3}-[0-9]{2}-[0-9]{2}",
-              "text": "Phone number must be in the following format: +0 (000) 000-00-00"
-            }]          
+        if (this.tel_useValidate) {
+          this.current_question.validators = [{
+            "type": "regex",
+            "regex": "\\+[0-9]{1} \\([0-9]{3}\\) [0-9]{3}-[0-9]{2}-[0-9]{2}",
+            "text": "Phone number must be in the following format: +0 (000) 000-00-00"
+          }];
         }
         break;
       }
     }
 
-    this.getValueEvent.emit(this.current_question)
-    this.clearValues(form);
 
-    // this.msg = "success set: " + this.current_question.name + ' ' + this.current_question.state;
-    // this.action_text = "add another question"
-  }
-
-  checkInput(value: string) {
-    if(value == null || value == '') { return false}
-    return true
-
+    this.state = "set";
+    this.msg = "success set question type: " + this.current_question.type;
+    this.action_text = "now add question to Survey or watch the preview of your question (without optional settings currently)";
   }
 
 }

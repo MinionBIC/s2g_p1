@@ -50,15 +50,26 @@ export class DropdownQuestionComponent implements OnInit {
       return;
     }
 
-    this.current_question = {
-      "name":"test",
-      "type":"dropdown",
-      "title":form.value.textValue,
-      "choices": this.currOptions
-    };    
+    this.buildQuestion(form);
   }
 
-  preview() {
+  private buildQuestion(form: NgForm) {
+    this.current_question = {
+      "name": "test",
+      "type": "dropdown",
+      "title": form.value.textValue,
+      "choices": this.currOptions
+    };
+
+    this.current_question.isRequired = this.isRequired;
+    this.current_question.showNoneItem = this.noneItem;
+    this.current_question.showOtherItem = this.otherItem;
+  }
+
+  preview(form: NgForm) {
+
+    this.buildQuestion(form);
+
     this.surveyJson = {      
       elements: [this.current_question]
     }
@@ -66,9 +77,7 @@ export class DropdownQuestionComponent implements OnInit {
 
   sendValue(form: NgForm){   
 
-    this.current_question.isRequired = this.isRequired;
-    this.current_question.showNoneItem = this.noneItem;
-    this.current_question.showOtherItem = this.otherItem;
+    this.buildQuestion(form);
 
     this.getValueEvent.emit(this.current_question)
     this.clearValues(form);
