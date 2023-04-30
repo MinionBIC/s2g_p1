@@ -16,7 +16,7 @@ export class SurveyEditorComponent implements OnInit {
 
   surveyJson;
 
-  mode = 'editor';
+  mode = 'current';
 
   ngOnInit(): void {
     this.surveyJson = {
