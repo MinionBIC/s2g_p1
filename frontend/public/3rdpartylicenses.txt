@@ -272,6 +272,12 @@ Apache-2.0
  
 
 
+survey-angular-ui
+MIT
+
+survey-core
+MIT
+
 tslib
 0BSD
 Copyright (c) Microsoft Corporation.
