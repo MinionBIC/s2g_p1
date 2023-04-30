@@ -34,6 +34,6 @@ app.use('/feedback', feedbackRoutes);
 app.listen(PORT, () => { console.log('Hey Listen: ' + PORT)});
 
 app.use('*', (req, res) => {
-    //res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.sendFile(path.join(__dirname, 'public/index.html'));
     res.send('Hello World ' + process.env.NODE_ENV);
 })
