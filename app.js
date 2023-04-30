@@ -24,7 +24,7 @@ if(process.env.NODE_ENV == "development") {
     const  Mongoose = require('./db/local_connect');
 }
 else { 
-
+    const  Mongoose = require('./db/online_connect');
 }
 
 app.use('/users', userRoutes);
@@ -35,5 +35,5 @@ app.listen(PORT, () => { console.log('Hey Listen: ' + PORT)});
 
 app.use('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
-    res.send('Hello World ' + process.env.NODE_ENV);
+    //res.send('Hello World ' + process.env.NODE_ENV);
 })
